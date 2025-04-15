@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Username -->
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Username"
+        android:layout_marginTop="15dp"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/usernameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Create username"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/input_bg"
+        android:padding="10dp"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="#000000"
+        android:textColorHint="#809A9A9A" />
+
+    <!-- Password -->
+    <TextView
+        android:id="@+id/textViewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="#FFFFFF"
+        android:text="Password"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Create password"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/input_bg"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppinsregular"
+        android:textColorHint="#809A9A9A" />
+
+    <EditText
+        android:id="@+id/passwordConfirmInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Confirm password"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_bg"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppinsregular"
+        android:textColorHint="#809A9A9A" />
+
+    <!-- confirm button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirmButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:stateListAnimator="@null" />
+</LinearLayout>

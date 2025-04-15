@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- background -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -11,7 +10,6 @@
         android:src="@drawable/background"
         android:scaleType="centerCrop" />
 
-    <!-- overlay -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +22,6 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <!-- welcome -->
             <TextView
                 android:id="@+id/welcomeText"
                 android:layout_width="wrap_content"
@@ -45,83 +42,106 @@
                 android:fontFamily="@font/poppinsregular"
                 android:layout_marginTop="5dp" />
 
-            <!-- login card -->
+            <!-- TABS -->
             <LinearLayout
-                android:id="@+id/loginCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+
+            </LinearLayout>
+
+            <!-- Login Form -->
+
+            <FrameLayout
+                android:id="@+id/loginContainer"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/login_card_bg"
-                android:elevation="6dp">
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="visible">
 
-                <!-- Tabs -->
+                <include layout="@layout/partial_login_form" />
+
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal">
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerInParent="true">
 
                     <TextView
+                        android:id="@+id/registerTab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Login"
-                        android:textSize="20dp"
-                        android:textColor="#FFFFFF"
-                        android:fontFamily="@font/poppinsregular"
-                        android:layout_marginEnd="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppinsregular"
                         android:text="Register"
-                        android:textColor="#D3BDEB"
+                        android:paddingBottom="25dp"
+                        android:clickable="true"
+                        android:textColor="#80FFFFFF"
                         android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/loginTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Login"
+                        android:paddingBottom="25dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        android:clickable="true"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Register Form -->
+            <FrameLayout
+                android:id="@+id/registerContainer"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/login_card_bg"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerInParent="true">
+
+                    <TextView
+                        android:id="@+id/registerTabSelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/loginTabUnselected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Login"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="20dp"
+                        android:textStyle="" />
                 </LinearLayout>
 
-                <!-- Username -->
-                <EditText
-                    android:id="@+id/usernameInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter username"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/input_bg"
-                    android:padding="12dp"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF" />
+                <include layout="@layout/partial_register_form" />
+            </FrameLayout>
 
-                <!-- Password -->
-                <EditText
-                    android:id="@+id/passwordInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter password"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/input_bg"
-                    android:padding="12dp"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColorHint="#FFFFFF"
-                    android:inputType="textPassword" />
-
-                <!-- confirm button -->
-                <Button
-                    android:id="@+id/confirmButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:background="@drawable/button_bg"
-                    android:backgroundTint="#FFFFFF"
-                    android:fontFamily="@font/poppinsregular"
-                    android:style="@null"
-                    android:text="Confirm"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
