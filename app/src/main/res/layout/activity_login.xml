@@ -1,8 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- background -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -10,138 +10,86 @@
         android:src="@drawable/background"
         android:scaleType="centerCrop" />
 
+    <!-- container -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:padding="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:animateLayoutChanges="true"
             android:gravity="center_horizontal">
 
+            <!-- welcome text -->
             <TextView
-                android:id="@+id/welcomeText"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="60dp"
-                android:fontFamily="@font/poppinsregular"
+                android:layout_height="wrap_content"
                 android:text="Welcome!"
+                android:textSize="48sp"
                 android:textColor="#FFFFFF"
-                android:textSize="48sp" />
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/poppinsregular" />
 
             <TextView
-                android:id="@+id/subtitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Login to start saving"
                 android:textSize="22sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="@font/poppinsregular"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppinsregular" />
 
-            <!-- TABS -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
-
-            </LinearLayout>
-
-            <!-- Login Form -->
-
+            <!-- card -->
             <FrameLayout
-                android:id="@+id/loginContainer"
-                android:layout_width="330dp"
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:animateLayoutChanges="true"
                 android:background="@drawable/login_card_bg"
                 android:elevation="6dp"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:visibility="visible">
+                android:padding="15dp">
 
-                <include layout="@layout/partial_login_form" />
-
+                <!-- tabs -->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:layout_centerInParent="true">
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:id="@+id/loginTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="16dp" />
 
                     <TextView
                         android:id="@+id/registerTab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Register"
-                        android:paddingBottom="25dp"
-                        android:clickable="true"
                         android:textColor="#80FFFFFF"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/loginTab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Login"
-                        android:paddingBottom="25dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20dp"
-                        android:clickable="true"
-                        android:textStyle="bold" />
+                        android:textSize="20sp" />
                 </LinearLayout>
-            </FrameLayout>
 
-            <!-- Register Form -->
-            <FrameLayout
-                android:id="@+id/registerContainer"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/login_card_bg"
-                android:elevation="6dp"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:visibility="gone">
-
-                <LinearLayout
+                <!-- fragment gets swapped in here -->
+                <FrameLayout
+                    android:id="@+id/formContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:layout_centerInParent="true">
+                    android:layout_marginTop="60dp" />
 
-                    <TextView
-                        android:id="@+id/registerTabSelected"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Register"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20dp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/loginTabUnselected"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Login"
-                        android:textColor="#80FFFFFF"
-                        android:textSize="20dp"
-                        android:textStyle="" />
-                </LinearLayout>
-
-                <include layout="@layout/partial_register_form" />
             </FrameLayout>
-
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
