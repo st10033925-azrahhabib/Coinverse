@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Coinverse</string>
+    <string name="hint_budget_name">Budget name</string>
+    <string name="create_budget_title">Create Budget</string>
+    <string name="hint_budget_period">Budget period</string>
+    <string name="hint_select_category">Select a category</string>
+    <string name="hint_additional_notes">Additional notes</string>
+    <string name="hint_amount">Amount</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="cd_dropdown_arrow">Dropdown arrow</string>
+
 </resources>
