@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient_image"
-    android:padding="24dp">
+    android:paddingTop="24dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
 
 
 
-
-    <View
+<View
         android:id="@+id/purple_header"
         android:layout_width="0dp"
         android:layout_height="80dp"
@@ -229,11 +230,11 @@
         <ImageView
             android:id="@+id/ivAdd"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/add"
+            android:layout_weight="1"
             android:contentDescription="Add"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:src="@drawable/add" />
 
         <ImageView
             android:id="@+id/ivGoals"
@@ -252,5 +253,6 @@
             android:src="@drawable/profile"
             android:contentDescription="Profile"
             android:padding="12dp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
