@@ -13,7 +13,7 @@
         android:id="@+id/purple_header_insights"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#7A3EE2"
+        android:background="#7A63AC"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -43,9 +43,9 @@
         android:id="@+id/cardDailySpending"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="25dp"
         app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
@@ -63,9 +63,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_daily_spending"
-                android:textColor="#5C40B1"
-                android:textSize="18sp"
+                android:textColor="#7A63AC"
+                android:textSize="20sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/poppinsbold"
                 android:layout_gravity="center_horizontal" />
 
             <TextView
@@ -75,6 +76,7 @@
                 android:text="-3600"
                 android:textColor="#888888"
                 android:textSize="22sp"
+                android:fontFamily="@font/poppinsregular"
                 android:layout_marginTop="8dp"
                 android:layout_gravity="center_horizontal" />
 
@@ -84,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_total_expenses"
                 android:textColor="#AAAAAA"
+                android:fontFamily="@font/poppinsregular"
                 android:textSize="14sp"
                 android:layout_gravity="center_horizontal" />
 
@@ -135,9 +138,9 @@
         android:id="@+id/cardAverageExpenses"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="25dp"
         app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
@@ -149,15 +152,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_average_expenses"
-                android:textColor="#5C40B1"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textColor="#7A63AC"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinssemibold"
                 android:layout_gravity="center_horizontal" />
 
             <TextView
@@ -166,8 +169,9 @@
                 android:layout_height="wrap_content"
                 android:text="-670"
                 android:textColor="#888888"
-                android:textSize="22sp"
-                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsregular"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -192,6 +196,7 @@
             android:layout_weight="1"
             android:src="@drawable/home"
             android:contentDescription="Home"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
         <ImageButton
@@ -201,6 +206,7 @@
             android:layout_weight="1"
             android:src="@drawable/insights"
             android:contentDescription="Insights"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
         <ImageButton
@@ -210,6 +216,7 @@
             android:layout_weight="1"
             android:src="@drawable/add"
             android:contentDescription="Add"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
         <ImageButton
@@ -219,6 +226,7 @@
             android:layout_weight="1"
             android:src="@drawable/goals"
             android:contentDescription="Goals"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
         <ImageButton
@@ -228,6 +236,7 @@
             android:layout_weight="1"
             android:src="@drawable/profile"
             android:contentDescription="Profile"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
 
