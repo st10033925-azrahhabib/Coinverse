@@ -39,12 +39,11 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Profile Settings"
                 android:fontFamily="@font/poppinsbold"
                 android:textColor="#7A63AC"
-                android:textSize="22sp">
-            </TextView>
+                android:textSize="22sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -53,8 +52,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp" />
 
-            <!-- settings -->
-
+            <!-- Change password -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,14 +67,15 @@
                     android:text="Change password"
                     android:textSize="18sp"
                     android:textColor="#9A9A9A" />
-
             </LinearLayout>
 
+            <!-- Dark Mode Toggle -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="0dp"
@@ -87,24 +86,28 @@
                     android:textSize="18sp"
                     android:textColor="#9A9A9A" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchDarkMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:thumbTint="#7A63AC"
+                    app:trackTint="#9A9A9A"/>
             </LinearLayout>
 
-            <LinearLayout
+            <!-- log out button -->
+            <Button
+                android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppinsregular"
-                    android:text="Log out"
-                    android:textSize="18sp"
-                    android:textColor="#9A0F3F" />
-
-            </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:text="Log Out"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#9A0F3F"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="18sp"
+                android:padding="5dp"
+                android:background="@drawable/logout_button" />
 
             <View
                 android:layout_width="match_parent"
@@ -113,23 +116,17 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="16dp" />
 
-            <!-- layout stuff here-->
-
-
             <LinearLayout
                 android:id="@+id/layoutChartDots"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="12dp">
-
-
-            </LinearLayout>
+                android:layout_marginTop="2dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- nav bar -->
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -192,7 +189,7 @@
             android:contentDescription="Profile"
             android:background="@android:color/transparent"
             android:padding="12dp"
-            app:tint="#7A63AC "/>
+            app:tint="#7A63AC" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
