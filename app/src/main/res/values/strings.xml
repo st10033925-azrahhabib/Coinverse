@@ -1,13 +1,24 @@
 <resources>
     <string name="app_name">Coinverse</string>
+
+    <!-- budget strings -->
     <string name="hint_budget_name">Budget name</string>
     <string name="create_budget_title">Create Budget</string>
     <string name="hint_budget_period">Budget period</string>
+    
+    <!-- expense strings -->
+    <string name="log_expense_title">Log Expense</string>
+    <string name="hint_expense_name">Expense name</string>
+    <string name="hint_vendor_name">Vendor name</string>
+
+    <!-- shared  -->
     <string name="hint_select_category">Select a category</string>
-    <string name="hint_additional_notes">Additional notes</string>
+    <string name="cd_dropdown_arrow">Dropdown arrow</string>
     <string name="hint_amount">Amount</string>
+    <string name="hint_additional_notes">Additional notes</string>
+    
+    <!-- buttons -->
     <string name="button_cancel">Cancel</string>
     <string name="button_confirm">Confirm</string>
-    <string name="cd_dropdown_arrow">Dropdown arrow</string>
-
+    <string name="button_attach_receipt">Attach Receipt</string>
 </resources>
