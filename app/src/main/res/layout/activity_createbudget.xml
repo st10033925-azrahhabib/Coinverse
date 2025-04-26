@@ -5,15 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_image"
+    android:background="@drawable/gradient_bg"
     tools:context=".CreateBudgetActivity">
 
 
     <View
         android:id="@+id/purple_header"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="#7A3EE2"
+        android:layout_height="56dp"
+        android:background="#7A63AC"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -22,7 +22,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_create_budget"
-        android:layout_width="0dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
@@ -42,15 +42,14 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-
             <TextView
                 android:id="@+id/tvTitleCreateBudget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/create_budget_title"
-                android:textColor="#5C40B1"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="#7A63AC"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsbold" />
 
 
             <View
@@ -68,7 +67,9 @@
                 android:hint="@string/hint_budget_name"
                 android:inputType="textCapWords"
                 android:backgroundTint="#D3C6EC"
-                android:textColorHint="#B0A5CD"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinsregular"
+                android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
 
 
@@ -84,8 +85,10 @@
                     android:gravity="center_vertical"
                     android:paddingStart="4dp"
                     android:paddingEnd="30dp"
-                    android:text="@string/hint_select_category"
-                    android:textColor="#B0A5CD" />
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="#9A9A9A"
+                    android:text="@string/hint_select_category"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -99,6 +102,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+
                     android:layout_alignParentBottom="true"
                     android:background="#D3C6EC" />
 
@@ -124,7 +128,9 @@
                     android:paddingStart="4dp"
                     android:paddingEnd="30dp"
                     android:text="@string/hint_budget_period"
-                    android:textColor="#B0A5CD" />
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="#9A9A9A" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -158,7 +164,9 @@
                 android:hint="@string/hint_amount"
                 android:inputType="numberDecimal"
                 android:backgroundTint="#D3C6EC"
-                android:textColorHint="#B0A5CD"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinsregular"
+                android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
 
 
@@ -172,7 +180,9 @@
                 android:hint="@string/hint_additional_notes"
                 android:inputType="textMultiLine|textCapSentences"
                 android:backgroundTint="#D3C6EC"
-                android:textColorHint="#B0A5CD"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinsregular"
+                android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
 
 
@@ -190,8 +200,9 @@
                     android:layout_weight="1"
                     android:backgroundTint="#EDE7F6"
                     android:text="@string/button_cancel"
+                    android:fontFamily="@font/poppinsregular"
                     android:textAllCaps="false"
-                    android:textColor="#5C40B1"
+                    android:textColor="#7A63AC"
                     app:cornerRadius="24dp" />
 
                 <Space
@@ -204,7 +215,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#7A3EE2"
+                    android:backgroundTint="#7A63AC"
+                    android:fontFamily="@font/poppinsregular"
                     android:text="@string/button_confirm"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
@@ -213,66 +225,68 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
-
-
+    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="8dp"
         android:background="#F5F5F5"
-        android:elevation="8dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivHome"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/home"
             android:contentDescription="Home"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivInsights"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/insights"
             android:contentDescription="Insights"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivAdd"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/add"
+            android:layout_weight="1"
+            android:src="@drawable/add_button"
             android:contentDescription="Add"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivGoals"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/goals"
             android:contentDescription="Goals"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivProfile"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/profile"
             android:contentDescription="Profile"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
