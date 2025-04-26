@@ -3,55 +3,52 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_image"
-    android:paddingTop="24dp"
-    android:paddingStart="24dp"
-    android:paddingEnd="24dp">
+    android:background="@drawable/gradient_bg">
 
-
-
-<View
+    <View
         android:id="@+id/purple_header"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="#7A3EE2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="56dp"
+        android:background="#7A63AC"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
-        app:cardBackgroundColor="#F9F6FC"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/purple_header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="22dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/log_expense_title"
-                android:textColor="#5C40B1"
-                android:textSize="18sp"
+                android:textColor="#7A63AC"
+                android:fontFamily="@font/poppinsbold"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="#E0E0E0" />
 
             <EditText
@@ -59,9 +56,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="12dp"
-                android:hint="@string/hint_expense_name"
+                android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
-                android:textColorHint="#B0A5CD" />
+                android:hint="@string/hint_expense_name"
+                android:textColorHint="#9A9A9A" />
 
 
             <RelativeLayout
@@ -73,19 +71,21 @@
                     android:id="@+id/tvCategoryLabel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/hint_select_category"
-                    android:textColor="#B0A5CD"
                     android:gravity="center_vertical"
                     android:paddingStart="4dp"
-                    android:paddingEnd="4dp" />
+                    android:paddingEnd="4dp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/hint_select_category"
+                    android:textColor="#9A9A9A"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@android:drawable/arrow_down_float"
-                    android:contentDescription="@string/cd_dropdown_arrow" />
+                    android:contentDescription="@string/cd_dropdown_arrow"
+                    android:src="@android:drawable/arrow_down_float" />
 
                 <View
                     android:layout_width="match_parent"
@@ -97,87 +97,93 @@
                     android:id="@+id/spinnerCategory"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:alpha="0" />
+                    android:alpha="0"
+                    android:background="@android:color/transparent" />
             </RelativeLayout>
 
             <EditText
                 android:id="@+id/etVendorName"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/hint_vendor_name"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
-                android:textColorHint="#B0A5CD" />
+                android:hint="@string/hint_vendor_name"
+                android:textColorHint="#9A9A9A" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/etAmount"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/poppinsregular"
+                    android:backgroundTint="#D3C6EC"
                     android:hint="@string/hint_amount"
                     android:inputType="numberDecimal"
-                    android:backgroundTint="#D3C6EC"
-                    android:textColorHint="#B0A5CD" />
+                    android:textColorHint="#9A9A9A" />
 
                 <EditText
                     android:id="@+id/etDate"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:hint="01/01/2001"
-                    android:focusable="false"
-                    android:inputType="none"
+                    android:layout_weight="1"
                     android:backgroundTint="#D3C6EC"
-                    android:textColorHint="#B0A5CD" />
+                    android:fontFamily="@font/poppinsregular"
+                    android:focusable="false"
+                    android:hint="01/01/2001"
+                    android:inputType="none"
+                    android:textColorHint="#9A9A9A" />
             </LinearLayout>
 
             <EditText
                 android:id="@+id/etNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_additional_notes"
                 android:layout_marginTop="8dp"
-                android:minLines="3"
-                android:gravity="top|start"
-                android:inputType="textMultiLine"
                 android:backgroundTint="#D3C6EC"
-                android:textColorHint="#B0A5CD" />
+                android:gravity="top|start"
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/hint_additional_notes"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:textColorHint="#9A9A9A" />
 
             <Button
                 android:id="@+id/btnAttachReceipt"
+                android:fontFamily="@font/poppinsregular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_attach_receipt"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="#7A3EE2"
+                android:backgroundTint="#7A63AC"
+                android:drawablePadding="8dp"
+                android:text="@string/button_attach_receipt"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:drawablePadding="8dp" />
+                android:textColor="@android:color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnCancel"
                     android:layout_width="0dp"
+                    android:fontFamily="@font/poppinsregular"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="#D1C4E9"
                     android:text="@string/button_cancel"
                     android:textAllCaps="false"
-                    android:backgroundTint="#D1C4E9"
-                    android:textColor="#6200EE" />
+                    android:textColor="#7A63AC" />
 
                 <Space
                     android:layout_width="8dp"
@@ -185,12 +191,13 @@
 
                 <Button
                     android:id="@+id/btnConfirm"
+                    android:fontFamily="@font/poppinsregular"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="#7A63AC"
                     android:text="@string/button_confirm"
                     android:textAllCaps="false"
-                    android:backgroundTint="#7A3EE2"
                     android:textColor="@android:color/white" />
             </LinearLayout>
         </LinearLayout>
