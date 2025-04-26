@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coinverse"
+
         tools:targetApi="32">
+        <activity
+            android:name=".CreateBudgetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Createbudget"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
