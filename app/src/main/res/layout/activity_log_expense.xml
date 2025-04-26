@@ -203,63 +203,67 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
+    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="8dp"
         android:background="#F5F5F5"
-        android:elevation="8dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivHome"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/home"
             android:contentDescription="Home"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivInsights"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/insights"
             android:contentDescription="Insights"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivAdd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:src="@drawable/add_button"
             android:contentDescription="Add"
-            android:padding="12dp"
-            android:src="@drawable/add" />
+            android:background="@android:color/transparent"
+            android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivGoals"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/goals"
+            android:layout_weight="1"
+            android:src="@drawable/goal"
             android:contentDescription="Goals"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ivProfile"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/profile"
             android:contentDescription="Profile"
+            android:background="@android:color/transparent"
             android:padding="12dp" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
