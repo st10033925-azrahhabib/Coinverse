@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/title_daily_spending"
+                android:text="Daily Spending"
                 android:textColor="#7A63AC"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -84,7 +84,7 @@
                 android:id="@+id/tvTotalExpensesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_total_expenses"
+                android:text="total expenses"
                 android:textColor="#AAAAAA"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="14sp"
@@ -157,7 +157,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/title_average_expenses"
+                android:text="Average Expenses"
                 android:textColor="#7A63AC"
                 android:textSize="20sp"
                 android:fontFamily="@font/poppinssemibold"
