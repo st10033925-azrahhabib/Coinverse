@@ -31,6 +31,10 @@
         </activity>
 
         <activity
+            android:name=".AddCategoryActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".ExpensesActivity"
             android:exported="false" />
     </application>
