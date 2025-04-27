@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712557933494",
+    "project_id": "coinverse-7e236",
+    "storage_bucket": "coinverse-7e236.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712557933494:android:1032931bb9411f97dd8717",
+        "android_client_info": {
+          "package_name": "vcmsa.projects.coinverse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHFk-fcviBK0TCX65nGtHsErpd1LqCJSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

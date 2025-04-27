@@ -27,6 +27,29 @@
         android:textColor="#000000"
         android:textColorHint="#809A9A9A" />
 
+    <!-- email -->
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="Email"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/EmailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/input_bg"
+        android:fontFamily="@font/poppinsregular"
+        android:hint="Enter email"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#809A9A9A" />
+
     <!-- password -->
     <TextView
         android:id="@+id/textViewPassword"
