@@ -8,9 +8,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-
     <!-- Header -->
-
     <View
         android:id="@+id/purple_header_insights"
         android:layout_width="0dp"
@@ -20,9 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <!-- Month Fragment -->
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
@@ -32,9 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_month" />
 
-
     <!-- Week Selector Fragment -->
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weekSelectorFragmentContainer"
         android:layout_width="0dp"
@@ -44,9 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_month" />
 
-
     <!-- Budget Goals Card -->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBudgetGoals"
         android:layout_width="0dp"
@@ -66,7 +58,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
-
 
             <!-- Title Row -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,9 +87,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="#7A63AC" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Budget Total -->
             <!-- Divider -->
             <View
                 android:layout_width="match_parent"
@@ -107,29 +98,6 @@
                 android:layout_marginBottom="16dp"
                 android:background="#DDD" />
 
-            <!-- Budget Total -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Budget Goals"
-                android:fontFamily="@font/poppinsbold"
-                android:textColor="#7A63AC"
-                android:textSize="22sp">
-            </TextView>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#DDD"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp" />
-
             <!-- Budget Total Row -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -137,33 +105,26 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="12dp">
 
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/poppinssemibold"
+                    android:fontFamily="@font/poppinsregular"
                     android:text="Budget Total:"
-
                     android:textColor="#9A9A9A"
                     android:textSize="18sp" />
-
-                    android:textSize="18sp"
-                    android:textColor="#9A9A9A" />
-
 
                 <TextView
                     android:id="@+id/budgetTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:fontFamily="@font/poppinssemibold"
+                    android:fontFamily="@font/poppinsregular"
                     android:text="R 2000"
                     android:textColor="#9A9A9A"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <!-- Another Divider -->
+            <!-- Divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -177,120 +138,10 @@
             <include layout="@layout/budget_category_item" android:id="@+id/itemClothing" />
             <include layout="@layout/budget_category_item" android:id="@+id/itemTravel" />
             <include layout="@layout/budget_category_item" android:id="@+id/itemGifting" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Amount Available Card -->
-
-                    android:text="R 2000"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:textSize="18sp"
-                    android:textColor="#9A9A9A" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#DDD"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="16dp" />
-
-            <!-- layout stuff here-->
-
-
-            <LinearLayout
-                android:id="@+id/layoutChartDots"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="12dp">
-
-
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardAmountAvailable"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="30dp"
-
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#F9F6FC"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-
-        app:cardBackgroundColor="#F9F6FC"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        android:layout_marginBottom="16dp"
-
-        app:layout_constraintTop_toBottomOf="@id/cardBudgetGoals"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Amount available"
-                android:textColor="#7A63AC"
-                android:textSize="20sp"
-                android:fontFamily="@font/poppinssemibold"
-                android:layout_marginTop="2dp"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:id="@+id/amountAvailable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="R1000"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/poppinssemibold"
-                android:textSize="20sp"
-
-                android:textColor="#9A9A9A" />
-
-            <SeekBar
-                android:id="@+id/seekBarAmountAvailable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:max="2000"
-                android:progress="1000"
-                android:progressDrawable="@drawable/custom_seekbar_progress"
-                android:thumb="@null"
-                android:enabled="false"
-                android:paddingStart="0dp"
-                android:paddingEnd="0dp"
-                android:splitTrack="false" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <!-- Bottom Navigation Bar -->
-
-                android:textColor="#9A9A9A">
-            </TextView>
-
-           <!-- progress bar here -->
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- nav bar -->
-
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -298,17 +149,10 @@
         android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
-
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center">
-
 
         <ImageButton
             android:id="@+id/ivHome"
@@ -360,5 +204,4 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
