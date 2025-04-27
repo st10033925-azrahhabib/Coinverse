@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
 
             if (inputUser == DEMO_USERNAME && inputPass == DEMO_PASSWORD) {
 
-                val intent = Intent(requireActivity(), ExpensesActivity::class.java)
+                val intent = Intent(requireActivity(), BudgetGoals::class.java)
                 startActivity(intent)
 
                 requireActivity().finish()
