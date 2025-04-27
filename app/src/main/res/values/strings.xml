@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">Coinverse</string>
 
+    <string name="budget_goals_title">Budget Goals</string>
+    <string name="cd_add_budget_goal">Add budget goal</string>
+    <string name="budget_total_label">Budget Total:</string>
+    <string name="category_food">Food</string>
+    <string name="category_groceries">Groceries</string>
+    <string name="category_clothing">Clothing</string>
+    <string name="category_travel">Travel</string>
+    <string name="category_gifting">Gifting</string>
+
+    <string name="budget_total_placeholder">R 2000</string>
+    <string name="amount_available_title">Amount available</string>
+    <string name="amount_available_placeholder">R1000</string>
+
+
+
     <!-- budget strings -->
     <string name="hint_budget_name">Budget name</string>
     <string name="create_budget_title">Create Budget</string>
@@ -21,4 +36,5 @@
     <string name="button_cancel">Cancel</string>
     <string name="button_confirm">Confirm</string>
     <string name="button_attach_receipt">Attach Receipt</string>
+
 </resources>
