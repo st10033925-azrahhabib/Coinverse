@@ -13,13 +13,23 @@ class Insights : AppCompatActivity(), WeekSelectorFragment.WeekNavigationListene
     private var currentWeek = 1
     private val totalWeeks = 4
 
-
     private val STATE_CURRENT_WEEK = "current_week_state"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_insights)
+
+        // coming soon pop up
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Coming Soon!")
+            .setMessage("This feature is still under development. Stay tuned :)")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .show()
+        // end
 
 
         if (savedInstanceState != null) {
