@@ -1,9 +1,11 @@
 package vcmsa.projects.coinverse
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import android.content.Intent
 import android.util.Log
@@ -17,6 +19,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
+
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
@@ -38,6 +41,33 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        val etUsername = view.findViewById<EditText>(R.id.usernameInput)
+        val etPassword = view.findViewById<EditText>(R.id.passwordInput)
+        val btnLogin   = view.findViewById<Button>(R.id.confirmButton)
+
+        btnLogin.setOnClickListener {
+            val inputUser = etUsername.text.toString().trim()
+            val inputPass = etPassword.text.toString()
+
+            if (inputUser == DEMO_USERNAME && inputPass == DEMO_PASSWORD) {
+
+                val intent = Intent(requireActivity(), ExpensesActivity::class.java)
+                startActivity(intent)
+
+                requireActivity().finish()
+            } else {
+                // toast on failure
+                Toast.makeText(
+                    requireContext(),
+                    "Invalid username or password",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+}
+=======
         // Initialize Firebase Auth & Firestore
         auth = Firebase.auth
         db = Firebase.firestore
@@ -165,3 +195,4 @@ class LoginFragment : Fragment() {
         loginButton.isEnabled = !isLoading
     }
 }
+
