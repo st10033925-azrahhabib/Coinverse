@@ -9,6 +9,8 @@
     <string name="category_clothing">Clothing</string>
     <string name="category_travel">Travel</string>
     <string name="category_gifting">Gifting</string>
+    <string name="cd_next_week">Next Week</string>
+    <string name="cd_previous_week">Previous Week</string>
 
     <string name="budget_total_placeholder">R 2000</string>
     <string name="amount_available_title">Amount available</string>

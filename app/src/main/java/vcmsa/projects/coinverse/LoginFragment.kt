@@ -7,11 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.content.Intent
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -46,7 +42,7 @@ class LoginFragment : Fragment() {
         val etPassword = view.findViewById<EditText>(R.id.passwordInput)
         val btnLogin   = view.findViewById<Button>(R.id.confirmButton)
 
-        btnLogin.setOnClickListener {
+        /*btnLogin.setOnClickListener {
             val inputUser = etUsername.text.toString().trim()
             val inputPass = etPassword.text.toString()
 
@@ -64,10 +60,8 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        }
-    }
-}
-=======
+        }*/
+
         // Initialize Firebase Auth & Firestore
         auth = Firebase.auth
         db = Firebase.firestore
@@ -184,7 +178,7 @@ class LoginFragment : Fragment() {
 
     // Helper function for navigation
     private fun goToMainActivity() {
-        val intent = Intent(activity, LogExpense::class.java)
+        val intent = Intent(activity, ExpensesActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         activity?.finish()
