@@ -41,5 +41,13 @@
         <activity
             android:name=".BudgetGoals"
             android:exported="false" />
+
+        <activity
+            android:name=".LogExpense"
+            android:exported="false" />
+
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
     </application>
 </manifest>

@@ -178,7 +178,7 @@ class LoginFragment : Fragment() {
 
     // Helper function for navigation
     private fun goToMainActivity() {
-        val intent = Intent(activity, ExpensesActivity::class.java)
+        val intent = Intent(activity, LogExpense::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         activity?.finish()
