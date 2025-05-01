@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("kotlin-kapt")
 }
 
 android {
@@ -38,6 +39,7 @@ android {
 
 dependencies {
 
+    implementation(platform(libs.firebase.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -48,10 +50,23 @@ dependencies {
 
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+    implementation("com.google.firebase:firebase-database-ktx")
+
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.8.0")
+
+    val lifecycle_version = "2.7.0"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
 
     testImplementation(libs.junit)
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+}
+
+kapt {
+    correctErrorTypes = true
 }
