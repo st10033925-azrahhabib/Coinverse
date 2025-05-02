@@ -121,12 +121,16 @@
                 android:layout_marginBottom="8dp"
                 android:background="#DDD" />
 
-            <!-- Category Items -->
-            <include layout="@layout/budget_category_item" android:id="@+id/itemFood" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemGroceries" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemClothing" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemTravel" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemGifting" />
+            <!--recycle view -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerBudgetCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:overScrollMode="never"
+                tools:listitem="@layout/budget_category_item" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
