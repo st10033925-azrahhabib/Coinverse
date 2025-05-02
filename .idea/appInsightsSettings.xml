@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="vcmsa.projects.coinverse" />
+                  <option name="mobileSdkAppId" value="1:712557933494:android:1032931bb9411f97dd8717" />
+                  <option name="projectId" value="coinverse-7e236" />
+                  <option name="projectNumber" value="712557933494" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

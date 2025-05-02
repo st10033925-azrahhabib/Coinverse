@@ -92,10 +92,76 @@
 
     </LinearLayout>
 
-    <include
-        layout="@layout/bottom_nav_bar"
+    <!-- nav bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom" />
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:padding="8dp"
+        android:background="#F5F5F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/ivHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/home"
+            android:contentDescription="Home"
+            android:background="@android:color/transparent"
+            android:padding="12dp" />
+
+        <ImageButton
+            android:id="@+id/ivInsights"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/insights"
+            android:contentDescription="Insights"
+            android:background="@android:color/transparent"
+            android:padding="12dp" />
+
+        <ImageButton
+            android:id="@+id/ivAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/add_button"
+            android:contentDescription="Add"
+            android:background="@android:color/transparent"
+            android:padding="12dp" />
+
+        <ImageButton
+            android:id="@+id/ivGoals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/goal"
+            android:contentDescription="Goals"
+            android:background="@android:color/transparent"
+            android:padding="12dp" />
+
+        <ImageButton
+            android:id="@+id/ivProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/profile"
+            android:contentDescription="Profile"
+            android:background="@android:color/transparent"
+            android:padding="12dp" />
+    </LinearLayout>
+
+<!--    Here lies fathims;s fragment:-->
+<!--    <include-->
+<!--        layout="@layout/bottom_nav_bar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom" />-->
 
 </FrameLayout>
