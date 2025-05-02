@@ -105,7 +105,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:thumbTint="#7A63AC"
-                    app:trackTint="#9A9A9A"/>
+                    app:trackTint="#9A9A9A"
+                    android:enabled="false" /> <!--makes switch untoggleable-->
 
                 <!-- Coming soon message -->
                 <TextView

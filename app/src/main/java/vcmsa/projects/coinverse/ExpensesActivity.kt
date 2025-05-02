@@ -43,6 +43,7 @@ class ExpensesActivity : AppCompatActivity() {
         auth = Firebase.auth
         firestore = Firebase.firestore
 
+        //configures rv
         expensesRecyclerView = findViewById(R.id.rvExpenses)
         expensesRecyclerView.layoutManager = LinearLayoutManager(this)
 
