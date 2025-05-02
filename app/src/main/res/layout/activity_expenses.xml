@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp" />
 
-
+        <!-- week tabs -->
 
         <!-- expenses card -->
         <androidx.cardview.widget.CardView
@@ -51,17 +51,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Your Expenses"
+                    android:fontFamily="@font/poppinsbold"
                     android:textColor="#7E57C2"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#E0E0E0" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvExpenses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="No expenses to show yet"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/darker_gray" />
+                    android:clipToPadding="false"
+                    android:paddingBottom="8dp"
+                    />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
