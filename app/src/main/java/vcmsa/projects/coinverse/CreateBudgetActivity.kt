@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.app.Activity
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -104,7 +101,7 @@ class CreateBudgetActivity : AppCompatActivity() {
         // Initialize Firebase
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
-        
+
         // Setup UI components
         setupCategorySpinner()
         loadCategoriesFromDb()
