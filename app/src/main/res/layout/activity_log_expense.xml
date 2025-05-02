@@ -8,15 +8,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <View
-        android:id="@+id/purple_header"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:background="#7A63AC"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="350dp"
@@ -27,7 +18,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/purple_header">
+        app:layout_constraintTop_toTopOf="parent" >
 
         <LinearLayout
             android:layout_width="match_parent"

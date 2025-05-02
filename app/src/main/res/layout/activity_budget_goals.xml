@@ -8,22 +8,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- Header -->
-    <View
-        android:id="@+id/purple_header_insights"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="#7A63AC"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <!-- Month Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/purple_header_insights"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_month" />

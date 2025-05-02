@@ -17,8 +17,8 @@ class MonthFragment : Fragment() {
 
         val monthTabLayout = view.findViewById<TabLayout>(R.id.monthTabLayout)
 
-        val months = listOf("Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+        val months = listOf("January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December")
 
         for (month in months) {
             monthTabLayout.addTab(monthTabLayout.newTab().setText(month))

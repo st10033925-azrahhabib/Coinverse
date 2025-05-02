@@ -8,15 +8,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <View
-        android:id="@+id/purple_header_insights"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="#7A63AC"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBudgetGoals"
         android:layout_width="0dp"
@@ -27,7 +18,7 @@
         app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/purple_header_insights"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
