@@ -8,27 +8,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- Header -->
-    <View
-        android:id="@+id/purple_header_insights"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="#7A63AC"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Month Fragment -->
+    <!-- month tabs -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
+        android:name="vcmsa.projects.coinverse.MonthFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/purple_header_insights"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_month" />
 
-    <!-- Week Selector Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weekSelectorFragmentContainer"
         android:layout_width="0dp"
@@ -36,12 +26,12 @@
         app:layout_constraintTop_toBottomOf="@id/fragmentContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_month" />
+        tools:layout="@layout/fragment_week_selector" />
 
     <!-- Budget Goals Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBudgetGoals"
-        android:layout_width="0dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
@@ -85,8 +75,7 @@
                     android:src="@drawable/ic_add_button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="#7A63AC" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Budget Total -->
@@ -119,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsregular"
-                    android:text="R 2000"
+                    android:text="R 0000"
                     android:textColor="#9A9A9A"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -132,16 +121,19 @@
                 android:layout_marginBottom="8dp"
                 android:background="#DDD" />
 
-            <!-- Category Items -->
-            <include layout="@layout/budget_category_item" android:id="@+id/itemFood" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemGroceries" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemClothing" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemTravel" />
-            <include layout="@layout/budget_category_item" android:id="@+id/itemGifting" />
+            <!--recycle view -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerBudgetCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:overScrollMode="never"
+                tools:listitem="@layout/budget_category_item" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -149,10 +141,10 @@
         android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/ivHome"
@@ -179,7 +171,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_add_button"
+            android:src="@drawable/add"
             android:contentDescription="Add"
             android:background="@android:color/transparent"
             android:padding="12dp" />
@@ -204,4 +196,5 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,32 +8,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <View
-        android:id="@+id/purple_header"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:background="#7A63AC"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        android:layout_marginTop="50dp"
+        android:padding="24dp"
+        android:background="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="#F9F6FC"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="6dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/purple_header">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="22dp">
+            android:background="@android:color/white"
+            android:padding="18dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,9 +51,9 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
+                android:textColor="#000000"
                 android:hint="@string/hint_expense_name"
                 android:textColorHint="#9A9A9A" />
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -97,6 +90,7 @@
                     android:id="@+id/spinnerCategory"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="#000000"
                     android:alpha="0"
                     android:background="@android:color/transparent" />
             </RelativeLayout>
@@ -108,9 +102,9 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
+                android:textColor="#000000"
                 android:hint="@string/hint_vendor_name"
                 android:textColorHint="#9A9A9A" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,6 +120,7 @@
                     android:fontFamily="@font/poppinsregular"
                     android:backgroundTint="#D3C6EC"
                     android:hint="@string/hint_amount"
+                    android:textColor="#000000"
                     android:inputType="numberDecimal"
                     android:textColorHint="#9A9A9A" />
 
@@ -138,6 +133,7 @@
                     android:backgroundTint="#D3C6EC"
                     android:fontFamily="@font/poppinsregular"
                     android:focusable="false"
+                    android:textColor="#000000"
                     android:hint="01/01/2001"
                     android:inputType="none"
                     android:textColorHint="#9A9A9A" />
@@ -152,6 +148,7 @@
                 android:gravity="top|start"
                 android:fontFamily="@font/poppinsregular"
                 android:hint="@string/hint_additional_notes"
+                android:textColor="#000000"
                 android:inputType="textMultiLine"
                 android:minLines="3"
                 android:textColorHint="#9A9A9A" />
@@ -203,7 +200,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- nav bar -->
+    <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -211,10 +208,10 @@
         android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/ivHome"

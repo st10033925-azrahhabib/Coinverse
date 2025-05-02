@@ -1,105 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-<androidx.cardview.widget.CardView
-android:id="@+id/cardContainer"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-card_view:cardCornerRadius="24dp"
-card_view:cardElevation="8dp"
-android:layout_marginTop="50dp"
-android:layout_marginHorizontal="24dp"
-android:padding="24dp"
-android:background="@android:color/white">
-
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="18dp">
-
-    <TextView
-        android:text="Add Category"
-        android:textSize="20sp"
-        android:fontFamily="@font/poppinsbold"
-        android:textStyle="bold"
-        android:textColor="#7A63AC"
-        android:layout_height="wrap_content" android:layout_width="300dp"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DDD"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp" />
-
-    <EditText
-        android:id="@+id/categoryNameEditText"
-        android:hint="Category name"
-        android:fontFamily="@font/poppinsregular"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        card_view:cardCornerRadius="24dp"
+        card_view:cardElevation="8dp"
+        android:layout_marginTop="50dp"
+        android:padding="24dp"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Select an icon"
-        android:fontFamily="@font/poppinsregular"
-        android:textSize="16dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#777" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="18dp">
 
-    <GridLayout
-        android:id="@+id/iconGrid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_gravity="center_horizontal"
-        android:columnCount="5"
-        android:rowCount="3"
-        android:alignmentMode="alignMargins"
-        android:useDefaultMargins="true" />
+            <TextView
+                android:text="Add Category"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsbold"
+                android:textStyle="bold"
+                android:textColor="#7A63AC"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp" />
 
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="Cancel"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppinsregular"
-            android:backgroundTint="#7A63AC"
-            android:layout_height="45dp"/>
+            <EditText
+                android:id="@+id/categoryNameEditText"
+                android:hint="Category name"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
-        <Space android:layout_width="20dp" android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Select an icon"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="16dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#777" />
 
-        <Button
-            android:id="@+id/confirmButton"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:text="Confirm"
-            android:fontFamily="@font/poppinsregular"
-            android:textSize="16sp"
-            android:backgroundTint="#7A63AC" />
-    </LinearLayout>
-</LinearLayout>
-</androidx.cardview.widget.CardView>
+            <GridLayout
+                android:id="@+id/iconGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center_horizontal"
+                android:columnCount="5"
+                android:rowCount="3"
+                android:alignmentMode="alignMargins"
+                android:useDefaultMargins="true" />
 
-    <!-- nav bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Cancel"
+                    android:textSize="16sp"
+                    android:textColor="#7A63AC"
+                    android:fontFamily="@font/poppinsregular"
+                    android:backgroundTint="#D1C4E9" />
+
+                <Space android:layout_width="20dp" android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/confirmButton"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Confirm"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="16sp"
+                    android:backgroundTint="#7A63AC" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -107,10 +115,10 @@ android:background="@android:color/white">
         android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
-        android:layout_constraintBottom_toBottomOf="parent"
-        android:layout_constraintStart_toStartOf="parent"
-        android:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center">
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/ivHome"
@@ -163,5 +171,4 @@ android:background="@android:color/white">
             android:padding="12dp" />
     </LinearLayout>
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

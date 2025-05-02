@@ -19,6 +19,7 @@
 
         <!-- home -->
         <LinearLayout
+            android:id="@+id/home_link"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -40,6 +41,7 @@
 
         <!-- insights -->
         <LinearLayout
+            android:id="@+id/insights_link"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -63,6 +65,7 @@
 
         <!-- + button -->
         <LinearLayout
+            android:id="@+id/add_link"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -83,6 +86,7 @@
 
         <!-- goals -->
         <LinearLayout
+            android:id="@+id/goals_link"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -106,6 +110,7 @@
 
         <!-- profile -->
         <LinearLayout
+            android:id="@+id/profile_link"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

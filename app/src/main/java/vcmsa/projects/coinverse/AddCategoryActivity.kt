@@ -111,6 +111,11 @@ class AddCategoryActivity : AppCompatActivity() {
                         "Category '$categoryName' added successfully",
                         Toast.LENGTH_SHORT
                     ).show()
+                    val intent = Intent(this@AddCategoryActivity, LogExpense::class.java)
+                    val intentless = Intent(this@AddCategoryActivity, ExpensesActivity::class.java)
+                    intentless.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Effectively clears the backstack - prevents access to previous activities
+                    startActivity(intentless) //adds home page to backstack - for cancellation
+                    startActivity(intent) //refreshes the log expense
                     finish() // Close the activity
                 } else {
                     Toast.makeText(

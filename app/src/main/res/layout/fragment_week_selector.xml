@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/ivPreviousWeekFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/ic_arrow_left"
         android:contentDescription="@string/cd_previous_week"
         android:paddingStart="16dp"
@@ -28,6 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         tools:text="Week 1"
         android:textColor="#5C40B1"
         android:textSize="16sp"
@@ -36,8 +38,8 @@
 
     <ImageView
         android:id="@+id/ivNextWeekFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/ic_arrow_right"
         android:contentDescription="@string/cd_next_week"
         android:paddingStart="16dp"
