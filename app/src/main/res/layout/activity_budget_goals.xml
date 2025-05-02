@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- Month Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
@@ -18,7 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_month" />
 
-    <!-- Week Selector Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/weekSelectorFragmentContainer"
         android:layout_width="0dp"
@@ -26,7 +24,7 @@
         app:layout_constraintTop_toBottomOf="@id/fragmentContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_month" />
+        tools:layout="@layout/fragment_week_selector" />
 
     <!-- Budget Goals Card -->
     <androidx.cardview.widget.CardView
@@ -75,8 +73,7 @@
                     android:src="@drawable/ic_add_button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="#7A63AC" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Budget Total -->
@@ -131,7 +128,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -139,10 +135,10 @@
         android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/ivHome"
@@ -169,7 +165,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_add_button"
+            android:src="@drawable/add"
             android:contentDescription="Add"
             android:background="@android:color/transparent"
             android:padding="12dp" />
@@ -194,4 +190,5 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

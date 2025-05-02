@@ -49,6 +49,7 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
+                android:textColor="#000000"
                 android:hint="@string/hint_expense_name"
                 android:textColorHint="#9A9A9A" />
 
@@ -88,6 +89,7 @@
                     android:id="@+id/spinnerCategory"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="#000000"
                     android:alpha="0"
                     android:background="@android:color/transparent" />
             </RelativeLayout>
@@ -99,6 +101,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
+                android:textColor="#000000"
                 android:hint="@string/hint_vendor_name"
                 android:textColorHint="#9A9A9A" />
 
@@ -117,6 +120,7 @@
                     android:fontFamily="@font/poppinsregular"
                     android:backgroundTint="#D3C6EC"
                     android:hint="@string/hint_amount"
+                    android:textColor="#000000"
                     android:inputType="numberDecimal"
                     android:textColorHint="#9A9A9A" />
 
@@ -129,6 +133,7 @@
                     android:backgroundTint="#D3C6EC"
                     android:fontFamily="@font/poppinsregular"
                     android:focusable="false"
+                    android:textColor="#000000"
                     android:hint="01/01/2001"
                     android:inputType="none"
                     android:textColorHint="#9A9A9A" />
@@ -143,6 +148,7 @@
                 android:gravity="top|start"
                 android:fontFamily="@font/poppinsregular"
                 android:hint="@string/hint_additional_notes"
+                android:textColor="#000000"
                 android:inputType="textMultiLine"
                 android:minLines="3"
                 android:textColorHint="#9A9A9A" />

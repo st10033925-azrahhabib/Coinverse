@@ -5,21 +5,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-<androidx.cardview.widget.CardView
-android:id="@+id/cardContainer"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-card_view:cardCornerRadius="24dp"
-card_view:cardElevation="8dp"
-android:layout_marginTop="50dp"
-android:layout_marginHorizontal="24dp"
-android:padding="24dp"
-android:background="@android:color/white">
+    <androidx.cardview.widget.CardView
+    android:id="@+id/cardContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="24dp"
+    card_view:cardElevation="8dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginHorizontal="24dp"
+    android:padding="24dp"
+    android:background="@android:color/white">
 
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:padding="18dp">
 
     <TextView
