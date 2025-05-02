@@ -50,4 +50,4 @@ This project is licensed under the MIT License.
 
 ---
 
-*Created by CTRL + W*
+<p align="center">🌻 Built with care by <strong>CTRL + W</strong></p>
