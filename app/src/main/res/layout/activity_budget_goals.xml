@@ -31,7 +31,7 @@
     <!-- Budget Goals Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBudgetGoals"
-        android:layout_width="0dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
