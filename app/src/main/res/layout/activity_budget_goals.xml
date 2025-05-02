@@ -8,8 +8,10 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
+    <!-- month tabs -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
+        android:name="vcmsa.projects.coinverse.MonthFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

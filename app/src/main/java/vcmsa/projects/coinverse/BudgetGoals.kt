@@ -2,12 +2,16 @@ package vcmsa.projects.coinverse
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class BudgetGoals : AppCompatActivity() {
+
+    private lateinit var addBudget: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,9 +22,18 @@ class BudgetGoals : AppCompatActivity() {
             insets
         }
 
+        //starts create budget
+        addBudget = findViewById(R.id.ivAddGoal)
+
+        addBudget.setOnClickListener {
+            val intent = Intent(this, CreateBudgetActivity::class.java)
+            startActivity(intent)
+        }
+
         navigationBar()
     }
 
+    //Nav Bar
     private fun navigationBar() {
         val homeLink = findViewById<ImageButton>(R.id.ivHome)
         val insightsLink = findViewById<ImageButton>(R.id.ivInsights)

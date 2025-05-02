@@ -12,7 +12,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/gradient_bg" />
 
-    <!-- bottom nav -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,9 +23,10 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
             android:name="vcmsa.projects.coinverse.MonthFragment"
+            android:layout_gravity="top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="0dp" />
 
         <!-- week tabs -->
 
