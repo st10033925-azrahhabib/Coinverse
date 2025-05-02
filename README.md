@@ -30,7 +30,7 @@
 ## Demo Video
 
 Watch the Coinverse Demo!
-(https://your-demo-link-here.com)
+(https://youtu.be/hwD4CL6aAys)
 
 ---
 
