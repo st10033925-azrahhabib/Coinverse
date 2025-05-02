@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="70dp"
-        android:paddingTop="10dp"
+        android:paddingTop="20dp"
         android:orientation="vertical">
 
         <!-- month tabs -->
@@ -95,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/home"
+            android:src="@drawable/home_selected"
             android:contentDescription="Home"
             android:background="@android:color/transparent"
             android:padding="12dp" />
