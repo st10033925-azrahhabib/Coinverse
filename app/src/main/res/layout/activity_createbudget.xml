@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/create_budget_title"
-                android:textColor="#7A63AC"
+                android:textColor="@color/coinverse_purple"
                 android:textSize="20sp"
                 android:fontFamily="@font/poppinsbold" />
 
@@ -171,11 +171,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#EDE7F6"
+                    android:backgroundTint="#D1C4E9"
                     android:text="@string/button_cancel"
                     android:fontFamily="@font/poppinsregular"
                     android:textAllCaps="false"
-                    android:textColor="#7A63AC"
+                    android:textColor="@color/coinverse_purple"
                     app:cornerRadius="24dp" />
 
                 <Space
@@ -188,7 +188,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#7A63AC"
+                    android:backgroundTint="@color/coinverse_purple"
                     android:fontFamily="@font/poppinsregular"
                     android:text="@string/button_confirm"
                     android:textAllCaps="false"

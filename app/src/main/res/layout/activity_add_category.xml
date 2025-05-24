@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
+    <!-- header -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/header_purple"
+        android:elevation="4dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:background="@color/header_purple"
+            app:navigationIconTint="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
         android:layout_width="340dp"
@@ -31,7 +47,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/poppinsbold"
                 android:textStyle="bold"
-                android:textColor="#7A63AC"
+                android:textColor="@color/coinverse_purple"
                 android:layout_height="wrap_content"
                 android:layout_width="300dp" />
 
@@ -102,7 +118,7 @@
                     android:textColor="@color/white"
                     android:fontFamily="@font/poppinsregular"
                     android:textSize="16sp"
-                    android:backgroundTint="#7A63AC" />
+                    android:backgroundTint="@color/coinverse_purple" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

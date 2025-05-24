@@ -7,4 +7,6 @@
     <color name="text_hint_color">#9A9A9A</color> <!-- Gray -->
     <color name="text_primary_color">#DE000000</color> <!-- Dark Gray/Black (87% opacity) -->
     <color name="dropdown_arrow_color">#FF6200EE</color> <!-- Use an accent color  -->
+    <color name="coinverse_purple">#7A63AC</color>
+    <color name="header_purple">#d3bcff</color>
 </resources>

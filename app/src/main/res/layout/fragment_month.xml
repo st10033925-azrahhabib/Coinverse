@@ -12,7 +12,7 @@
         android:paddingBottom="8dp"
         app:tabMode="scrollable"
         app:tabGravity="center"
-        app:tabIndicatorColor="#7E57C2"
-        app:tabSelectedTextColor="#7E57C2"
+        app:tabIndicatorColor="@color/coinverse_purple"
+        app:tabSelectedTextColor="@color/coinverse_purple"
         app:tabTextColor="@android:color/darker_gray" />
 </FrameLayout>

@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient_bg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
-    <!-- background -->
-    <ImageView
+    <!-- header -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/gradient_bg" />
+        android:layout_height="wrap_content"
+        android:background="@color/header_purple"
+        android:elevation="4dp">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/header_purple"
+            app:navigationIconTint="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="70dp"
+        android:orientation="vertical"
         android:paddingTop="20dp"
-        android:orientation="vertical">
+        android:layout_gravity="top"
+        android:layout_marginBottom="70dp">
 
-        <!-- month tabs -->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
             android:name="vcmsa.projects.coinverse.MonthFragment"
-            android:layout_gravity="top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp" />
+            android:layout_height="wrap_content" />
 
-        <!-- week tabs -->
-
-        <!-- expenses card -->
         <androidx.cardview.widget.CardView
             android:layout_width="340dp"
             android:layout_height="wrap_content"
@@ -51,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="Your Expenses"
                     android:fontFamily="@font/poppinsbold"
-                    android:textColor="#7E57C2"
+                    android:textColor="@color/coinverse_purple"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -68,26 +74,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:clipToPadding="false"
-                    android:paddingBottom="8dp"
-                    />
-
+                    android:paddingBottom="8dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
 
-    <!-- nav bar -->
+    <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="bottom"
+        android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center">
 
         <ImageButton
@@ -140,12 +140,4 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
-
-<!--    Here lies fathims;s fragment:-->
-<!--    <include-->
-<!--        layout="@layout/bottom_nav_bar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom" />-->
-
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

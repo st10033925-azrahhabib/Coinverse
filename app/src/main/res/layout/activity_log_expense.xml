@@ -8,6 +8,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
+    <!-- header -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/header_purple"
+        android:elevation="4dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/header_purple"
+            app:navigationIconTint="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
         android:layout_width="340dp"
@@ -25,6 +41,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@android:color/white"
             android:padding="18dp">
 
@@ -32,9 +49,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/log_expense_title"
-                android:textColor="#7A63AC"
+                android:textColor="@color/coinverse_purple"
                 android:fontFamily="@font/poppinsbold"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <View
@@ -134,7 +151,7 @@
                     android:fontFamily="@font/poppinsregular"
                     android:focusable="false"
                     android:textColor="#000000"
-                    android:hint="01/01/2001"
+                    android:hint="DD/MM/YYY"
                     android:inputType="none"
                     android:textColorHint="#9A9A9A" />
             </LinearLayout>
@@ -159,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="#7A63AC"
+                android:backgroundTint="@color/coinverse_purple"
                 android:drawablePadding="8dp"
                 android:text="@string/button_attach_receipt"
                 android:textAllCaps="false"
@@ -180,7 +197,7 @@
                     android:backgroundTint="#D1C4E9"
                     android:text="@string/button_cancel"
                     android:textAllCaps="false"
-                    android:textColor="#7A63AC" />
+                    android:textColor="@color/coinverse_purple"/>
 
                 <Space
                     android:layout_width="8dp"
