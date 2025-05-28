@@ -429,10 +429,12 @@ class LogExpense : AppCompatActivity() {
         showLoading(false) // Hide progress
         Toast.makeText(this, "Expense logged successfully!", Toast.LENGTH_SHORT).show()
         // Navigate back or clear form
-        val intent = Intent(this, ExpensesActivity::class.java) // Go to expenses list
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(intent)
-        finish() // Close LogExpense activity
+        val intent = Intent(this, ExpensesActivity::class.java)
+        val intentless = Intent(this, ExpensesActivity::class.java)
+        intentless.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Effectively clears the backstack - prevents access to previous activities
+        startActivity(intentless) //adds home page to backstack - for cancellation
+        startActivity(intent) //refreshes the expenses
+        finish() // Close the activity
     }
 
     // Handle Save Error

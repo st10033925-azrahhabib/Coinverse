@@ -57,7 +57,7 @@
                 android:id="@+id/tvWelcomeBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome back!"
+                android:text="Welcome back!\n@user??"
                 android:fontFamily="@font/poppinsregular"
                 android:textColor="#9A9A9A"
                 android:textSize="18sp"
@@ -88,15 +88,6 @@
                     android:textSize="18sp"
                     android:textColor="#9A9A9A" />
 
-                <!-- Coming soon message -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Coming Soon"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="14sp"
-                    android:textColor="#9A0F3F"
-                android:layout_marginStart="8dp" />
             </LinearLayout>
 
             <!-- Dark Mode (coming soon) -->
@@ -121,18 +112,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:thumbTint="#7A63AC"
-                    app:trackTint="#9A9A9A"
-                    android:enabled="false" /> <!--makes switch untoggleable-->
-
-                <!-- Coming soon message -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Coming Soon"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="14sp"
-                    android:textColor="#9A0F3F"
-                android:layout_marginStart="8dp" />
+                    app:trackTint="#9A9A9A" />
+<!--                    android:enabled="false" /> -->
+                <!--makes switch untoggleable ^ -->
             </LinearLayout>
 
             <!-- log out button -->

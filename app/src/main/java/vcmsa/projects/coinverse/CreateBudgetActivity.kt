@@ -18,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import vcmsa.projects.coinverse.AddCategoryActivity
 import vcmsa.projects.coinverse.db.AppDatabase
 import vcmsa.projects.coinverse.db.CategoryDao
 import java.util.Date
@@ -352,9 +353,16 @@ class CreateBudgetActivity : AppCompatActivity() {
     // Navigation Helper
     private fun navigateToBudgetGoals() {
         val intent = Intent(this, BudgetGoals::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(intent)
-        finish()
+        val intentless = Intent(this, ExpensesActivity::class.java)
+        intentless.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Effectively clears the backstack - prevents access to previous activities
+        startActivity(intentless) //adds home page to backstack - for cancellation
+        startActivity(intent) //refreshes the budgets
+        finish() // Close the activity
+//        Redundant code
+//        val intent = Intent(this, BudgetGoals::class.java)
+//        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+//        startActivity(intent)
+//        finish()
     }
 
     //Nav Bar
