@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/gradient_bg">
 
-    <!-- header -->
+    <!-- Header -->
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/header_purple"
@@ -23,14 +25,14 @@
             app:navigationIconTint="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Main Content -->
-    <LinearLayout
+    <!-- Main  -->
+    <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_marginBottom="70dp">
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="70dp"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,13 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout="@layout/fragment_month" />
-
-            <!-- Week Selector Fragment -->
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/weekSelectorFragmentContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_week_selector" />
 
             <!-- Budget Goals Card -->
             <androidx.cardview.widget.CardView
@@ -69,7 +64,6 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <!-- Header Row -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -98,7 +92,6 @@
                             app:layout_constraintEnd_toEndOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <!-- Divider -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -106,7 +99,6 @@
                         android:layout_marginBottom="16dp"
                         android:background="#DDD" />
 
-                    <!-- Budget Total -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -132,7 +124,6 @@
                             android:textSize="18sp" />
                     </LinearLayout>
 
-                    <!-- Divider -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -140,7 +131,6 @@
                         android:layout_marginBottom="8dp"
                         android:background="#DDD" />
 
-                    <!-- RecyclerView -->
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerBudgetCategories"
                         android:layout_width="match_parent"
@@ -153,9 +143,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
-    <!-- Bottom Navigation Bar -->
+    <!-- Nav Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -171,7 +161,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/home_selected"
+            android:src="@drawable/home"
             android:contentDescription="Home"
             android:background="@android:color/transparent"
             android:padding="12dp" />
@@ -201,7 +191,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/goal"
+            android:src="@drawable/goals"
             android:contentDescription="Goals"
             android:background="@android:color/transparent"
             android:padding="12dp" />
@@ -216,4 +206,4 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>
