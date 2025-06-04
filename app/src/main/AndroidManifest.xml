@@ -39,6 +39,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".Insights"
+            android:exported="false" />
+
+        <activity
             android:name=".BudgetGoals"
             android:exported="false" />
 
@@ -49,5 +53,10 @@
         <activity
             android:name=".Profile"
             android:exported="false" />
+
+        <activity
+            android:name=".CategoryDetailsActivity"
+            android:exported="false" />
+
     </application>
 </manifest>

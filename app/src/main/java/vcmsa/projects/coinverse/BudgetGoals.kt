@@ -28,9 +28,8 @@ class BudgetGoals : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
+        enableEdgeToEdge()
         setContentView(R.layout.activity_budget_goals)
-
 
         auth = Firebase.auth
         firestore = Firebase.firestore

@@ -10,25 +10,14 @@
     tools:context=".Profile">
 
     <!-- header -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/header_purple"
-        android:elevation="4dp"
+    <include
+        android:id="@+id/topAppBar"
+        layout="@layout/layout_header"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/header_purple"
-            app:navigationIconTint="@color/white" />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- Card Content -->
+    <!-- card content -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBudgetGoals"
         android:layout_width="0dp"
@@ -40,7 +29,7 @@
         app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -145,7 +134,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Bottom Navigation -->
+    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"

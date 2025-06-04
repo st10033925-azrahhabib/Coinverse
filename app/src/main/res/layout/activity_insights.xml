@@ -9,42 +9,24 @@
     android:background="@drawable/gradient_bg">
 
     <!-- header -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <include
+        android:id="@+id/topAppBar"
+        layout="@layout/layout_header"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/header_purple"
-        android:elevation="4dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/header_purple"
-            app:navigationIconTint="@color/white" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
+    <!-- month tab -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_month" />
 
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/weekSelectorFragmentContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/fragmentContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_week_selector" />
-
-
+    <!-- daily spending card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardDailySpending"
         android:layout_width="0dp"
@@ -55,12 +37,12 @@
         app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/weekSelectorFragmentContainer"
+        app:layout_constraintTop_toBottomOf="@id/fragmentContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
@@ -140,7 +122,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
+    <!-- average expenses card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAverageExpenses"
         android:layout_width="0dp"
@@ -183,13 +165,12 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
+    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp"
         android:background="#F5F5F5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -231,7 +212,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/goals"
+            android:src="@drawable/goal"
             android:contentDescription="Goals"
             android:background="@android:color/transparent"
             android:padding="12dp" />
