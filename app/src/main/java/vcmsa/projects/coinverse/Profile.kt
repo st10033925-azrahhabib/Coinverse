@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,16 @@ class Profile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_profile)
+
+        // gets and displays username
+        val currentUser = Firebase.auth.currentUser
+        val welcomeText = findViewById<TextView>(R.id.tvWelcomeBack)
+
+        currentUser?.let { user ->
+            val username = user.displayName ?: user.email?.substringBefore("@") ?: "User"
+            welcomeText.text = "Welcome back, $username!"
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left,0, systemBars.right, 0)

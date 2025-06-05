@@ -1,137 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/gradient_bg">
 
-    <include layout="@layout/layout_header" />
-
-    <!-- Main  -->
-    <ScrollView
-        android:id="@+id/scrollView"
+    <!-- Use vertical stacking for header and scrollable content -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="70dp"
-        android:fillViewport="true">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <!-- Fixed Header -->
+        <include layout="@layout/layout_header" />
+
+        <!-- Scrollable Content -->
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="70dp"
+            android:fillViewport="true">
 
-            <!-- Month Fragment -->
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainer"
-                android:name="vcmsa.projects.coinverse.MonthFragment"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_month" />
+                android:orientation="vertical">
 
-            <!-- Budget Goals Card -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardBudgetGoals"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#F9F6FC"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
+                <!-- Month Selector Fragment -->
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fragmentContainer"
+                    android:name="vcmsa.projects.coinverse.MonthFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                    tools:layout="@layout/fragment_month" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textViewBudgetGoalsTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppinsbold"
-                            android:text="Budget Goals"
-                            android:textColor="@color/coinverse_purple"
-                            android:textSize="20sp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/ivAddGoal"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="@string/cd_add_budget_goal"
-                            android:src="@drawable/ic_add_button"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:background="#DDD" />
+                <!-- Budget Goals Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardBudgetGoals"
+                    android:layout_width="360dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:cardBackgroundColor="#F9F6FC"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="12dp">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/poppinsregular"
-                            android:text="Budget Total:"
-                            android:textColor="#9A9A9A"
-                            android:textSize="18sp" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/budgetTotal"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/textViewBudgetGoalsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppinsbold"
+                                android:text="Budget Goals"
+                                android:textColor="@color/coinverse_purple"
+                                android:textSize="20sp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/ivAddGoal"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:contentDescription="@string/cd_add_budget_goal"
+                                android:src="@drawable/ic_add_button"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="#DDD" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppinsregular"
-                            android:text="R 0000"
-                            android:textColor="#9A9A9A"
-                            android:textSize="18sp" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Budget Total:"
+                                android:textColor="#9A9A9A"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/budgetTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="R 0000"
+                                android:textColor="#9A9A9A"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="#DDD" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerBudgetCategories"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:overScrollMode="never"
+                            tools:listitem="@layout/budget_category_item" />
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="#DDD" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerBudgetCategories"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        android:overScrollMode="never"
-                        tools:listitem="@layout/budget_category_item" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- Nav Bar -->
+    <!-- Fixed Bottom Nav Bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"

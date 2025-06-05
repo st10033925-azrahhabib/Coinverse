@@ -52,7 +52,7 @@
                 android:id="@+id/tvWelcomeBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome back!\n@user??"
+                android:text="Welcome back! [User]"
                 android:fontFamily="@font/poppinsregular"
                 android:textColor="#9A9A9A"
                 android:textSize="18sp"
