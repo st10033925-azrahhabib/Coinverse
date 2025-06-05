@@ -1,9 +1,12 @@
 package vcmsa.projects.coinverse
 
 import android.content.Intent
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -36,6 +39,63 @@ class Profile : AppCompatActivity() {
 
         navigationBar()
         logout()
+        updateBadges()
+    }
+
+    private fun updateBadges() {
+        val totalSaved = getTotalSavings()
+        val badgesEarned = (totalSaved / 1000).toInt().coerceAtMost(4) // 4 badges
+
+        val badgeViews = listOf(
+            findViewById<ImageView>(R.id.badge1),
+            findViewById<ImageView>(R.id.badge2),
+            findViewById<ImageView>(R.id.badge3),
+            findViewById<ImageView>(R.id.badge4)
+        )
+
+        val badgeDrawables = listOf(
+            R.drawable.badge_1,
+            R.drawable.badge_2,
+            R.drawable.badge_3,
+            R.drawable.badge_4
+        )
+        // badge desc
+        val badgeDescriptions = listOf(
+            "Save R1,000.",
+            "Save R2,000.",
+            "Save R3,000.",
+            "Save R4,000."
+        )
+
+        for (i in badgeViews.indices) {
+            val badgeView = badgeViews[i]
+            badgeView.setImageResource(badgeDrawables[i])
+
+            val matrix = ColorMatrix()
+            if (i < badgesEarned) {
+                badgeView.colorFilter = null // full colour for earned
+            } else {
+                matrix.setSaturation(0f) // grayscale for locked
+                badgeView.colorFilter = ColorMatrixColorFilter(matrix)
+            }
+
+            // toast messages for badges
+            badgeView.setOnClickListener {
+                val message = if (i < badgesEarned) {
+                    "✓ You’ve earned this badge!\n${badgeDescriptions[i]}"
+                } else {
+                    "🔒 Locked badge\nHow to earn: ${badgeDescriptions[i]}"
+                }
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    // temp hardcoded savings
+    private fun getTotalSavings(): Double {
+        // replace w firebase stuff later
+        val savingsList = listOf(500.0, 850.0, 200.0, 700.0) // total = 2250
+        return savingsList.sum()
     }
 
     //Logout
