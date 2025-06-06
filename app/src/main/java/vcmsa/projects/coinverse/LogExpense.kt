@@ -3,6 +3,7 @@ package vcmsa.projects.coinverse
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -202,6 +203,7 @@ class LogExpense : AppCompatActivity() {
                     //tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_hint_color))
                 } else {
                     tvCategoryLabel.text = selectedCategory
+                    tvCategoryLabel.setTextColor(Color.BLACK)
                     //tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_primary_color))
                 }
             }

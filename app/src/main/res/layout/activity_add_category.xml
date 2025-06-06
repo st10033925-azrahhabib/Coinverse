@@ -88,7 +88,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:text="Cancel"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textColor="#7A63AC"
                     android:fontFamily="@font/poppinsregular"
                     android:backgroundTint="#D1C4E9" />
@@ -100,10 +100,10 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
+                    android:textSize="14sp"
                     android:text="Confirm"
                     android:textColor="@color/white"
                     android:fontFamily="@font/poppinsregular"
-                    android:textSize="16sp"
                     android:backgroundTint="@color/coinverse_purple" />
             </LinearLayout>
         </LinearLayout>

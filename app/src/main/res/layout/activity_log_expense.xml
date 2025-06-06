@@ -156,17 +156,23 @@
                 android:minLines="3"
                 android:textColorHint="#9A9A9A" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAttachReceipt"
-                android:fontFamily="@font/poppinsregular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/logout_button"
                 android:backgroundTint="@color/coinverse_purple"
-                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/camera"
+                android:drawablePadding="-60dp"
+                android:paddingStart="80dp"
+                android:paddingEnd="10dp"
+                android:fontFamily="@font/poppinsregular"
                 android:text="@string/button_attach_receipt"
+                android:textSize="14sp"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
