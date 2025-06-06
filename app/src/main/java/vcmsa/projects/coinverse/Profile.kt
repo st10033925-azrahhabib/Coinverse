@@ -13,8 +13,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class Profile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,7 @@ class Profile : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_profile)
 
-        // gets and displays username
+        // gets and displays username + welcome back message
         val currentUser = Firebase.auth.currentUser
         val welcomeText = findViewById<TextView>(R.id.tvWelcomeBack)
 
@@ -43,59 +45,108 @@ class Profile : AppCompatActivity() {
     }
 
     private fun updateBadges() {
-        val totalSaved = getTotalSavings()
-        val badgesEarned = (totalSaved / 1000).toInt().coerceAtMost(4) // 4 badges
+        val userId = Firebase.auth.currentUser?.uid ?: return
+        val db = FirebaseFirestore.getInstance()
 
-        val badgeViews = listOf(
-            findViewById<ImageView>(R.id.badge1),
-            findViewById<ImageView>(R.id.badge2),
-            findViewById<ImageView>(R.id.badge3),
-            findViewById<ImageView>(R.id.badge4)
-        )
-
-        val badgeDrawables = listOf(
-            R.drawable.badge_1,
-            R.drawable.badge_2,
-            R.drawable.badge_3,
-            R.drawable.badge_4
-        )
-        // badge desc
-        val badgeDescriptions = listOf(
-            "Save R1,000.",
-            "Save R2,000.",
-            "Save R3,000.",
-            "Save R4,000."
-        )
-
-        for (i in badgeViews.indices) {
-            val badgeView = badgeViews[i]
-            badgeView.setImageResource(badgeDrawables[i])
-
-            val matrix = ColorMatrix()
-            if (i < badgesEarned) {
-                badgeView.colorFilter = null // full colour for earned
-            } else {
-                matrix.setSaturation(0f) // grayscale for locked
-                badgeView.colorFilter = ColorMatrixColorFilter(matrix)
-            }
-
-            // toast messages for badges
-            badgeView.setOnClickListener {
-                val message = if (i < badgesEarned) {
-                    "✓ You’ve earned this badge!\n${badgeDescriptions[i]}"
-                } else {
-                    "🔒 Locked badge\nHow to earn: ${badgeDescriptions[i]}"
+        db.collection("Budget")
+            .whereEqualTo("userId", userId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                var totalBudgeted = 0.0
+                for (doc in querySnapshot) {
+                    val amount = doc.getDouble("amount") ?: 0.0
+                    totalBudgeted += amount
                 }
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
+                val badgesEarned = (totalBudgeted / 1000).toInt().coerceAtMost(4)
+
+                val badgeViews = listOf(
+                    findViewById<ImageView>(R.id.badge1),
+                    findViewById<ImageView>(R.id.badge2),
+                    findViewById<ImageView>(R.id.badge3),
+                    findViewById<ImageView>(R.id.badge4)
+                )
+
+                val badgeDrawables = listOf(
+                    R.drawable.badge_1,
+                    R.drawable.badge_2,
+                    R.drawable.badge_3,
+                    R.drawable.badge_4
+                )
+
+                val badgeDescriptions = listOf(
+                    "You’ve created a budget totaling R1,000",
+                    "You’ve smashed the R2,000 budget milestone",
+                    "You’ve mastered budgeting up to R3,000",
+                    "You’ve conquered the R4,000 budget mark"
+                )
+
+                val badgeNames = listOf(
+                    "Bronze Budgeter",
+                    "Silver Saver",
+                    "Gold Goal Setter",
+                    "Platinum Planner"
+                )
+
+                // iterates over badges and determines if earned or not
+                for (i in badgeViews.indices) {
+                    val badgeView = badgeViews[i]
+                    val earned = i < badgesEarned
+
+                    // sets the grayscale for locked badges
+                    val matrix = ColorMatrix()
+                    if (earned) {
+                        badgeView.colorFilter = null
+                    } else {
+                        matrix.setSaturation(0f)
+                        badgeView.colorFilter = ColorMatrixColorFilter(matrix)
+                    }
+
+                    badgeView.setImageResource(badgeDrawables[i])
+
+                    badgeView.setOnClickListener {
+                        showBadgeBottomSheet(
+                            drawableRes = badgeDrawables[i],
+                            badgeName = badgeNames[i],
+                            description = badgeDescriptions[i],
+                            isEarned = earned
+                        )
+                    }
+                }
             }
-        }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed to load budgets for badges", Toast.LENGTH_SHORT).show()
+            }
     }
 
-    // temp hardcoded savings
-    private fun getTotalSavings(): Double {
-        // replace w firebase stuff later
-        val savingsList = listOf(500.0, 850.0, 200.0, 700.0) // total = 2250
-        return savingsList.sum()
+    // helper method to display badge details in a BottomSheetDialog.
+    private fun showBadgeBottomSheet(
+        drawableRes: Int,
+        badgeName: String,
+        description: String,
+        isEarned: Boolean
+    ) {
+        val view = layoutInflater.inflate(R.layout.badge_description_bottom_sheet, null)
+        val dialog = BottomSheetDialog(this)
+        dialog.setContentView(view)
+
+        val imageView = view.findViewById<ImageView>(R.id.ivBadgeImage)
+        val nameView = view.findViewById<TextView>(R.id.tvBadgeName)
+        val descriptionView = view.findViewById<TextView>(R.id.tvBadgeDescription)
+
+        imageView.setImageResource(drawableRes)
+
+        // show the badge name if earned and a locked title if not
+
+        if (isEarned) {
+            nameView.text = badgeName
+        } else {
+            nameView.text = "You haven't unlocked this badge yet"
+        }
+
+        descriptionView.text = description
+
+        dialog.show()
     }
 
     //Logout
@@ -111,7 +162,7 @@ class Profile : AppCompatActivity() {
                     Toast.makeText(this, "Signed out successfully!", Toast.LENGTH_SHORT).show()
                     //Sign out and redirect to Main
                     val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Effectively clears the backstack - prevents access to previous activities
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
                 }
@@ -120,7 +171,6 @@ class Profile : AppCompatActivity() {
                 }
                 .setCancelable(false)
                 .show()
-//            Firebase.auth.signOut()
         }
     }
 
