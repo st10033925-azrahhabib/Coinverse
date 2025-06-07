@@ -47,7 +47,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="#E0E0E0" />
+                android:background="@color/card_background" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -202,7 +202,7 @@
         android:layout_gravity="bottom"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         android:gravity="center">
 
         <ImageButton

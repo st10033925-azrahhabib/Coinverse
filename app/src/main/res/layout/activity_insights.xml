@@ -33,7 +33,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="25dp"
-            app:cardBackgroundColor="#F9F6FC"
+            app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="20dp"
             app:cardElevation="4dp">
 
@@ -126,7 +126,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="25dp"
-            app:cardBackgroundColor="#F9F6FC"
+            app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="20dp"
             app:cardElevation="4dp">
 
@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="horizontal"
-            android:background="#F5F5F5"
+            android:background="@color/card_background"
             android:gravity="center">
 
             <ImageButton

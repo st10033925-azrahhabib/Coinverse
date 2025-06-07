@@ -26,7 +26,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="40dp"
-        app:cardBackgroundColor="#F9F6FC"
+        app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp">
 
@@ -59,7 +59,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#DDD"
+                android:background="@color/card_background"
                 android:layout_marginBottom="16dp" />
 
             <TextView
@@ -201,7 +201,7 @@
         android:layout_gravity="bottom"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         android:gravity="center">
 
     <ImageButton

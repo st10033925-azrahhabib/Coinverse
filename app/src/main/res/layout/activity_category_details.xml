@@ -47,7 +47,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="8dp"
-                android:background="#DDD" />
+                android:background="@color/card_background" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/category_rv"
@@ -66,7 +66,7 @@
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"

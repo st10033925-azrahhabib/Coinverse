@@ -11,6 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -25,9 +27,31 @@ import vcmsa.projects.coinverse.repository.CategoryRepository
 
 class Profile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val darkModePref = DarkModePref(this) // load pref before UI
+        if (darkModePref.isDarkModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_profile)
+        val darkModeSwitch = findViewById<SwitchCompat>(R.id.switchDarkMode)
+        darkModeSwitch.isChecked = darkModePref.isDarkModeEnabled()
+
+        darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                darkModePref.setDarkModeEnabled(true)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                darkModePref.setDarkModeEnabled(false)
+            }
+            recreate()
+        }
+
+
 
         // gets and displays username + welcome back message
         val currentUser = Firebase.auth.currentUser

@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:padding="24dp"
-                android:background="@android:color/white"
+                android:background="@color/card_background"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="8dp">
 
@@ -40,7 +40,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/white"
+                    android:background="@color/card_background"
                     android:padding="18dp">
 
                     <!-- Title -->
@@ -58,7 +58,7 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:background="#E0E0E0" />
+                        android:background="@color/card_background" />
 
                     <EditText
                         android:id="@+id/etExpenseName"
@@ -100,7 +100,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentBottom="true"
-                            android:background="#D3C6EC" />
+                            android:background="@color/card_background" />
 
                         <Spinner
                             android:id="@+id/spinnerCategory"
@@ -229,7 +229,7 @@
         android:layout_gravity="bottom"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         android:gravity="center">
 
         <ImageButton
