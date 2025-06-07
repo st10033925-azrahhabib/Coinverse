@@ -42,6 +42,16 @@ class Profile : AppCompatActivity() {
         navigationBar()
         logout()
         updateBadges()
+        setupChangePasswordButton()
+    }
+
+    //change password
+    private fun setupChangePasswordButton() {
+        val changePasswordButton = findViewById<Button>(R.id.changePassword)
+
+        changePasswordButton.setOnClickListener {
+            ChangePasswordFragment.newInstance().show(supportFragmentManager, ChangePasswordFragment.TAG)
+        }
     }
 
     private fun updateBadges() {

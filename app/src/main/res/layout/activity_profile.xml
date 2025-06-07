@@ -129,6 +129,12 @@
                     android:text="Change password"
                     android:textSize="18sp"
                     android:textColor="#9A9A9A" />
+
+                <Button
+                    android:id="@+id/changePassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="?"/>
             </LinearLayout>
 
             <LinearLayout
