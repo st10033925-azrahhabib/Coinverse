@@ -28,13 +28,7 @@ class BudgetGoals : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_budget_goals)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         auth = Firebase.auth
         firestore = Firebase.firestore
@@ -55,6 +49,7 @@ class BudgetGoals : AppCompatActivity() {
         fetchBudgets()
         navigationBar()
     }
+
 
     //Gets and displays a list of budgets per category
     private fun fetchBudgets() {

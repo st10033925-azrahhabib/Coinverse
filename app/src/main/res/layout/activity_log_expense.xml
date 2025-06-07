@@ -1,234 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
-    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg">
+    android:background="@drawable/gradient_bg"
+    android:fitsSystemWindows="true">
 
-    <!-- header -->
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/header_purple"
-        android:elevation="4dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+        <!-- Header -->
+        <include layout="@layout/layout_header" />
+
+        <!-- Scrollable Card Content -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/header_purple"
-            app:navigationIconTint="@color/white" />
-    </com.google.android.material.appbar.AppBarLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="80dp"
+            android:paddingHorizontal="16dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardContainer"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="8dp"
-        android:layout_marginTop="50dp"
-        android:padding="24dp"
-        android:background="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/card_background"
-            android:padding="18dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/log_expense_title"
-                android:textColor="@color/coinverse_purple"
-                android:fontFamily="@font/poppinsbold"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginHorizontal="16dp"
+                android:padding="24dp"
+                android:background="@android:color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/card_background" />
-
-            <EditText
-                android:id="@+id/etExpenseName"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/poppinsregular"
-                android:backgroundTint="#D3C6EC"
-                android:textColor="@color/text_hint_color"
-                android:hint="@string/hint_expense_name"
-                android:textColorHint="#9A9A9A" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/tvCategoryLabel"
+                <!-- Main Content Layout -->
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:fontFamily="@font/poppinsregular"
-                    android:text="@string/hint_select_category"
-                    android:textColor="@color/text_hint_color"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:contentDescription="@string/cd_dropdown_arrow"
-                    android:src="@android:drawable/arrow_down_float" />
+                    android:background="@android:color/white"
+                    android:padding="18dp">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#D3C6EC" />
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/log_expense_title"
+                        android:textColor="@color/coinverse_purple"
+                        android:fontFamily="@font/poppinsbold"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                <Spinner
-                    android:id="@+id/spinnerCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="#000000"
-                    android:alpha="0"
-                    android:background="@android:color/transparent" />
-            </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="#E0E0E0" />
 
-            <EditText
-                android:id="@+id/etVendorName"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppinsregular"
-                android:backgroundTint="#D3C6EC"
-                android:textColor="@color/text_hint_color"
-                android:hint="@string/hint_vendor_name"
-                android:textColorHint="#9A9A9A" />
+                    <EditText
+                        android:id="@+id/etExpenseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:backgroundTint="#D3C6EC"
+                        android:textColor="#000000"
+                        android:hint="@string/hint_expense_name"
+                        android:textColorHint="#9A9A9A" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp">
 
-                <EditText
-                    android:id="@+id/etAmount"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppinsregular"
-                    android:backgroundTint="#D3C6EC"
-                    android:hint="@string/hint_amount"
-                    android:textColor="@color/text_hint_color"
-                    android:inputType="numberDecimal"
-                    android:textColorHint="#9A9A9A" />
+                        <TextView
+                            android:id="@+id/tvCategoryLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:paddingStart="4dp"
+                            android:paddingEnd="4dp"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="@string/hint_select_category"
+                            android:textColor="#9A9A9A"
+                            android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/etDate"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#D3C6EC"
-                    android:fontFamily="@font/poppinsregular"
-                    android:focusable="false"
-                    android:textColor="@color/text_hint_color"
-                    android:hint="DD/MM/YYY"
-                    android:inputType="none"
-                    android:textColorHint="#9A9A9A" />
-            </LinearLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/cd_dropdown_arrow"
+                            android:src="@android:drawable/arrow_down_float" />
 
-            <EditText
-                android:id="@+id/etNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#D3C6EC"
-                android:gravity="top|start"
-                android:fontFamily="@font/poppinsregular"
-                android:hint="@string/hint_additional_notes"
-                android:textColor="@color/text_hint_color"
-                android:inputType="textMultiLine"
-                android:minLines="3"
-                android:textColorHint="#9A9A9A" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="#D3C6EC" />
 
-            <Button
-                android:id="@+id/btnAttachReceipt"
-                android:fontFamily="@font/poppinsregular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/coinverse_purple"
-                android:drawablePadding="8dp"
-                android:text="@string/button_attach_receipt"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                        <Spinner
+                            android:id="@+id/spinnerCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:alpha="0"
+                            android:background="@android:color/transparent" />
+                    </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/etVendorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:backgroundTint="#D3C6EC"
+                        android:textColor="#000000"
+                        android:hint="@string/hint_vendor_name"
+                        android:textColorHint="#9A9A9A" />
 
-                <Button
-                    android:id="@+id/btnCancel"
-                    android:layout_width="0dp"
-                    android:fontFamily="@font/poppinsregular"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#D1C4E9"
-                    android:text="@string/button_cancel"
-                    android:textAllCaps="false"
-                    android:textColor="@color/coinverse_purple"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
 
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="wrap_content" />
+                        <EditText
+                            android:id="@+id/etAmount"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppinsregular"
+                            android:backgroundTint="#D3C6EC"
+                            android:hint="@string/hint_amount"
+                            android:textColor="#000000"
+                            android:inputType="numberDecimal"
+                            android:textColorHint="#9A9A9A" />
 
-                <Button
-                    android:id="@+id/btnConfirm"
-                    android:fontFamily="@font/poppinsregular"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#7A63AC"
-                    android:text="@string/button_confirm"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                        <EditText
+                            android:id="@+id/etDate"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#D3C6EC"
+                            android:fontFamily="@font/poppinsregular"
+                            android:focusable="false"
+                            android:textColor="#000000"
+                            android:hint="DD/MM/YYYY"
+                            android:inputType="none"
+                            android:textColorHint="#9A9A9A" />
+                    </LinearLayout>
 
-    <!-- Bottom Navigation Bar -->
+                    <EditText
+                        android:id="@+id/etNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#D3C6EC"
+                        android:gravity="top|start"
+                        android:fontFamily="@font/poppinsregular"
+                        android:hint="@string/hint_additional_notes"
+                        android:textColor="#000000"
+                        android:inputType="textMultiLine"
+                        android:minLines="3"
+                        android:textColorHint="#9A9A9A" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnAttachReceipt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/logout_button"
+                        android:backgroundTint="@color/coinverse_purple"
+                        android:drawableStart="@drawable/camera"
+                        android:drawablePadding="-50dp"
+                        android:paddingStart="70dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:text="@string/button_attach_receipt"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnCancel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppinsregular"
+                            android:backgroundTint="#D1C4E9"
+                            android:text="@string/button_cancel"
+                            android:textAllCaps="false"
+                            android:textColor="@color/coinverse_purple" />
+
+                        <Space
+                            android:layout_width="8dp"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppinsregular"
+                            android:backgroundTint="#7A63AC"
+                            android:text="@string/button_confirm"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="@color/card_background"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:background="#F5F5F5"
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/ivHome"
@@ -280,4 +282,4 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

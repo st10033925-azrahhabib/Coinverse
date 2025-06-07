@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- header -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/header_purple"
-        android:elevation="4dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:background="@color/header_purple"
-            app:navigationIconTint="@color/white" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <include layout="@layout/layout_header" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
@@ -102,7 +89,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:text="Cancel"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textColor="#7A63AC"
                     android:fontFamily="@font/poppinsregular"
                     android:backgroundTint="#D1C4E9" />
@@ -114,10 +101,10 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
+                    android:textSize="14sp"
                     android:text="Confirm"
                     android:textColor="@color/white"
                     android:fontFamily="@font/poppinsregular"
-                    android:textSize="16sp"
                     android:backgroundTint="@color/coinverse_purple" />
             </LinearLayout>
         </LinearLayout>

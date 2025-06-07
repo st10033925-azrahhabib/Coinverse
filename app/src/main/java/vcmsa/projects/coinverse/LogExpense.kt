@@ -3,6 +3,7 @@ package vcmsa.projects.coinverse
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -138,7 +139,6 @@ class LogExpense : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_log_expense)
 
         // Views By ID
@@ -169,21 +169,12 @@ class LogExpense : AppCompatActivity() {
         db = FirebaseFirestore.getInstance() // Get Firestore instance
         auth = FirebaseAuth.getInstance()
 
-        // Apply window insets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         // Setup UI components
         setupCategorySpinner()
         loadCategoriesFromDb()
         setupDatePicker()
         setupButtonClickListeners()
         setupNavigationBar()
-
-
     }
 
     // Category Spinner Setup
@@ -203,6 +194,7 @@ class LogExpense : AppCompatActivity() {
                     //tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_hint_color))
                 } else {
                     tvCategoryLabel.text = selectedCategory
+                    tvCategoryLabel.setTextColor(Color.BLACK)
                     //tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_primary_color))
                 }
             }
@@ -429,10 +421,12 @@ class LogExpense : AppCompatActivity() {
         showLoading(false) // Hide progress
         Toast.makeText(this, "Expense logged successfully!", Toast.LENGTH_SHORT).show()
         // Navigate back or clear form
-        val intent = Intent(this, ExpensesActivity::class.java) // Go to expenses list
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(intent)
-        finish() // Close LogExpense activity
+        val intent = Intent(this, ExpensesActivity::class.java)
+        val intentless = Intent(this, ExpensesActivity::class.java)
+        intentless.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Effectively clears the backstack - prevents access to previous activities
+        startActivity(intentless) //adds home page to backstack - for cancellation
+        startActivity(intent) //refreshes the expenses
+        finish() // Close the activity
     }
 
     // Handle Save Error

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,40 +8,33 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- header -->
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/header_purple"
-        android:elevation="4dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/header_purple"
-            app:navigationIconTint="@color/white" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <!-- header -->
+    <include
+        android:id="@+id/topAppBar"
+        layout="@layout/layout_header" />
 
+    <!-- card content -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBudgetGoals"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        app:cardBackgroundColor="@color/card_background"
+        android:layout_marginTop="40dp"
+        app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
             android:padding="20dp">
 
             <TextView
@@ -52,27 +45,76 @@
                 android:textColor="#7A63AC"
                 android:textSize="22sp" />
 
-            <!-- Welcome back message -->
             <TextView
                 android:id="@+id/tvWelcomeBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome back!"
+                android:text="Welcome back! [User]"
                 android:fontFamily="@font/poppinsregular"
-                android:textColor="@color/text_hint_color"
+                android:textColor="#9A9A9A"
                 android:textSize="18sp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp" />
-
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDD"
-                android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Change password (coming soon) -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Badges Earned"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="#7A63AC"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:id="@+id/badgeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:id="@+id/badge1"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginEnd="-13dp"
+                    android:layout_marginStart="-10dp"
+                    android:contentDescription="Badge 1"
+                    android:src="@drawable/badge_1" />
+
+                <ImageView
+                    android:id="@+id/badge2"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginEnd="-10dp"
+                    android:src="@drawable/badge_2"
+                    android:contentDescription="Badge 2" />
+
+                <ImageView
+                    android:id="@+id/badge3"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="-4dp"
+                    android:src="@drawable/badge_3"
+                    android:contentDescription="Badge 3" />
+
+                <ImageView
+                    android:id="@+id/badge4"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_marginStart="-5dp"
+                    android:src="@drawable/badge_4"
+                    android:contentDescription="Badge 4" />
+            </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,20 +128,9 @@
                     android:fontFamily="@font/poppinsregular"
                     android:text="Change password"
                     android:textSize="18sp"
-                    android:textColor="@color/text_hint_color" />
-
-                <!-- Coming soon message -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Coming Soon"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="14sp"
-                    android:textColor="#9A0F3F"
-                android:layout_marginStart="8dp" />
+                    android:textColor="#9A9A9A" />
             </LinearLayout>
 
-            <!-- Dark Mode (coming soon) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,47 +145,35 @@
                     android:fontFamily="@font/poppinsregular"
                     android:text="Dark mode"
                     android:textSize="18sp"
-                    android:textColor="@color/text_hint_color" />
+                    android:textColor="#9A9A9A" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switchDarkMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:thumbTint="#7A63AC"
-                    app:trackTint="#9A9A9A"
-                    android:enabled="true" /> <!--makes switch untoggleable-->
-
-                <!-- Coming soon message -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Coming Soon"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="14sp"
-                    android:textColor="#9A0F3F"
-                android:layout_marginStart="8dp" />
+                    app:trackTint="#9A9A9A" />
             </LinearLayout>
 
-            <!-- log out button -->
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp"
                 android:text="Log Out"
+                android:backgroundTint="@null"
                 android:textColor="#FFFFFF"
-                app:backgroundTint="#9A0F3F"
-                android:fontFamily="@font/poppinsregular"
+                android:textAllCaps="false"
                 android:textSize="18sp"
-                android:padding="5dp"
-                android:background="@drawable/logout_button" />
+                android:fontFamily="@font/poppinsregular"
+                android:background="@drawable/logout_button"
+                android:padding="5dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDD"
-                android:layout_marginTop="2dp"
                 android:layout_marginBottom="16dp" />
 
             <LinearLayout
@@ -164,73 +183,71 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_marginTop="2dp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Bottom Navigation -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@color/card_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center">
-
-        <ImageButton
-            android:id="@+id/ivHome"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/home"
-            android:contentDescription="Home"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivInsights"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/insights"
-            android:contentDescription="Insights"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivAdd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/ic_add_button"
-            android:contentDescription="Add"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivGoals"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/goals"
-            android:contentDescription="Goals"
-            android:background="@android:color/transparent"
-            android:padding="12dp"
-            app:tint="#7C7B7E" />
-
-        <ImageButton
-            android:id="@+id/ivProfile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/profile_ic"
-            android:contentDescription="Profile"
-            app:tint="#7A63AC"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- nav bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#F5F5F5"
+        android:gravity="center">
+
+    <ImageButton
+        android:id="@+id/ivHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/home"
+        android:contentDescription="Home"
+        android:background="@android:color/transparent"
+        android:padding="12dp" />
+
+    <ImageButton
+        android:id="@+id/ivInsights"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/insights"
+        android:contentDescription="Insights"
+        android:background="@android:color/transparent"
+        android:padding="12dp" />
+
+    <ImageButton
+        android:id="@+id/ivAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_add_button"
+        android:contentDescription="Add"
+        android:background="@android:color/transparent"
+        android:padding="12dp" />
+
+    <ImageButton
+        android:id="@+id/ivGoals"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/goals_selected"
+        android:contentDescription="Goals"
+        android:background="@android:color/transparent"
+        android:padding="12dp"
+        app:tint="#7C7B7E" />
+
+    <ImageButton
+        android:id="@+id/ivProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/profile_selected"
+        android:contentDescription="Profile"
+        app:tint="#7A63AC"
+        android:background="@android:color/transparent"
+        android:padding="12dp" />
+    </LinearLayout>
+</FrameLayout>

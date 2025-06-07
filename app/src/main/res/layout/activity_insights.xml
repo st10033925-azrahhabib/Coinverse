@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,243 +8,215 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- header -->
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/header_purple"
-        android:elevation="4dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
+        <!-- header -->
+        <include
             android:id="@+id/topAppBar"
+            layout="@layout/layout_header" />
+
+        <!-- month tab -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/header_purple"
-            app:navigationIconTint="@color/white" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_month" />
-
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/weekSelectorFragmentContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/fragmentContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_week_selector" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardDailySpending"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="25dp"
-        app:cardBackgroundColor="@color/card_background"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/weekSelectorFragmentContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
-            android:padding="20dp">
+            tools:layout="@layout/fragment_month" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daily Spending"
-                android:textColor="#7A63AC"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppinsbold"
-                android:layout_gravity="center_horizontal" />
+        <!-- daily spending card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDailySpending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="25dp"
+            app:cardBackgroundColor="#F9F6FC"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
-            <TextView
-                android:id="@+id/tvTotalExpensesValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-3600"
-                android:textColor="@color/text_hint_color"
-                android:textSize="22sp"
-                android:fontFamily="@font/poppinsregular"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:id="@+id/tvTotalExpensesLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="total expenses"
-                android:textColor="@color/text_hint_color"
-                android:fontFamily="@font/poppinsregular"
-                android:textSize="14sp"
-                android:layout_gravity="center_horizontal" />
-
-            <FrameLayout
-                android:id="@+id/chartContainer"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:layout_marginTop="16dp"
-                android:background="#EDEDED">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chart Area"
-                    android:layout_gravity="center" />
-            </FrameLayout>
+                    android:text="Daily Spending"
+                    android:textColor="#7A63AC"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppinsbold"
+                    android:layout_gravity="center_horizontal" />
 
-            <LinearLayout
-                android:id="@+id/layoutChartDots"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="12dp">
+                <TextView
+                    android:id="@+id/tvTotalExpensesValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-3600"
+                    android:textColor="#888888"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal" />
 
-                <ImageView
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/dotpurple" />
+                <TextView
+                    android:id="@+id/tvTotalExpensesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="total expenses"
+                    android:textColor="#AAAAAA"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="14sp"
+                    android:layout_gravity="center_horizontal" />
 
-                <ImageView
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginHorizontal="4dp"
-                    android:src="@drawable/dotpurple" />
+                <FrameLayout
+                    android:id="@+id/chartContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#EDEDED">
 
-                <ImageView
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginStart="4dp"
-                    android:src="@drawable/dotpurple" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chart Area"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutChartDots"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp">
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/dotpurple" />
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:src="@drawable/dotpurple" />
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/dotpurple" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardAverageExpenses"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="25dp"
-        app:cardBackgroundColor="@color/card_background"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardDailySpending"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
+        <!-- average expenses card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAverageExpenses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="25dp"
+            app:cardBackgroundColor="#F9F6FC"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Average Expenses"
-                android:textColor="#7A63AC"
-                android:textSize="20sp"
-                android:fontFamily="@font/poppinssemibold"
-                android:layout_gravity="center_horizontal" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tvAverageExpensesValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-670"
-                android:textColor="@color/text_hint_color"
-                android:textSize="20sp"
-                android:fontFamily="@font/poppinsregular"
-                android:layout_marginTop="2dp"
-                android:layout_gravity="center_horizontal" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average Expenses"
+                    android:textColor="#7A63AC"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:layout_gravity="center_horizontal" />
 
-
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@color/card_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center">
-
-        <ImageButton
-            android:id="@+id/ivHome"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/home"
-            android:contentDescription="Home"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivInsights"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/insights"
-            android:contentDescription="Insights"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivAdd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/add"
-            android:contentDescription="Add"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivGoals"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/goals"
-            android:contentDescription="Goals"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
-
-        <ImageButton
-            android:id="@+id/ivProfile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/profile"
-            android:contentDescription="Profile"
-            android:background="@android:color/transparent"
-            android:padding="12dp" />
+                <TextView
+                    android:id="@+id/tvAverageExpensesValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-670"
+                    android:textColor="#888888"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- nav bar -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:background="#F5F5F5"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/ivHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/home"
+                android:contentDescription="Home"
+                android:background="@android:color/transparent"
+                android:padding="12dp" />
+
+            <ImageButton
+                android:id="@+id/ivInsights"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/insights_selected"
+                android:contentDescription="Insights"
+                android:background="@android:color/transparent"
+                android:padding="12dp" />
+
+            <ImageButton
+                android:id="@+id/ivAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/add"
+                android:contentDescription="Add"
+                android:background="@android:color/transparent"
+                android:padding="12dp" />
+
+            <ImageButton
+                android:id="@+id/ivGoals"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/goal"
+                android:contentDescription="Goals"
+                android:background="@android:color/transparent"
+                android:padding="12dp" />
+
+            <ImageButton
+                android:id="@+id/ivProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/profile"
+                android:contentDescription="Profile"
+                android:background="@android:color/transparent"
+                android:padding="12dp" />
+        </LinearLayout>
+</FrameLayout>
