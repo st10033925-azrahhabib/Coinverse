@@ -31,7 +31,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        app:cardBackgroundColor="#F9F6FC"
+        app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="Welcome back!"
                 android:fontFamily="@font/poppinsregular"
-                android:textColor="#9A9A9A"
+                android:textColor="@color/text_hint_color"
                 android:textSize="18sp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp" />
@@ -86,7 +86,7 @@
                     android:fontFamily="@font/poppinsregular"
                     android:text="Change password"
                     android:textSize="18sp"
-                    android:textColor="#9A9A9A" />
+                    android:textColor="@color/text_hint_color" />
 
                 <!-- Coming soon message -->
                 <TextView
@@ -114,7 +114,7 @@
                     android:fontFamily="@font/poppinsregular"
                     android:text="Dark mode"
                     android:textSize="18sp"
-                    android:textColor="#9A9A9A" />
+                    android:textColor="@color/text_hint_color" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switchDarkMode"
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     app:thumbTint="#7A63AC"
                     app:trackTint="#9A9A9A"
-                    android:enabled="false" /> <!--makes switch untoggleable-->
+                    android:enabled="true" /> <!--makes switch untoggleable-->
 
                 <!-- Coming soon message -->
                 <TextView
@@ -174,7 +174,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

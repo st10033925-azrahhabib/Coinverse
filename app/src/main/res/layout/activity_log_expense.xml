@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@android:color/white"
+            android:background="@color/card_background"
             android:padding="18dp">
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="#E0E0E0" />
+                android:background="@color/card_background" />
 
             <EditText
                 android:id="@+id/etExpenseName"
@@ -68,7 +68,7 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
-                android:textColor="#000000"
+                android:textColor="@color/text_hint_color"
                 android:hint="@string/hint_expense_name"
                 android:textColorHint="#9A9A9A" />
 
@@ -86,7 +86,7 @@
                     android:paddingEnd="4dp"
                     android:fontFamily="@font/poppinsregular"
                     android:text="@string/hint_select_category"
-                    android:textColor="#9A9A9A"
+                    android:textColor="@color/text_hint_color"
                     android:textSize="18sp" />
 
                 <ImageView
@@ -119,7 +119,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppinsregular"
                 android:backgroundTint="#D3C6EC"
-                android:textColor="#000000"
+                android:textColor="@color/text_hint_color"
                 android:hint="@string/hint_vendor_name"
                 android:textColorHint="#9A9A9A" />
 
@@ -137,7 +137,7 @@
                     android:fontFamily="@font/poppinsregular"
                     android:backgroundTint="#D3C6EC"
                     android:hint="@string/hint_amount"
-                    android:textColor="#000000"
+                    android:textColor="@color/text_hint_color"
                     android:inputType="numberDecimal"
                     android:textColorHint="#9A9A9A" />
 
@@ -150,7 +150,7 @@
                     android:backgroundTint="#D3C6EC"
                     android:fontFamily="@font/poppinsregular"
                     android:focusable="false"
-                    android:textColor="#000000"
+                    android:textColor="@color/text_hint_color"
                     android:hint="DD/MM/YYY"
                     android:inputType="none"
                     android:textColorHint="#9A9A9A" />
@@ -165,7 +165,7 @@
                 android:gravity="top|start"
                 android:fontFamily="@font/poppinsregular"
                 android:hint="@string/hint_additional_notes"
-                android:textColor="#000000"
+                android:textColor="@color/text_hint_color"
                 android:inputType="textMultiLine"
                 android:minLines="3"
                 android:textColorHint="#9A9A9A" />
@@ -224,7 +224,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

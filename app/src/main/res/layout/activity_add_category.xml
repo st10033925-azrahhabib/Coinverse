@@ -30,7 +30,7 @@
         card_view:cardElevation="8dp"
         android:layout_marginTop="50dp"
         android:padding="24dp"
-        android:background="@android:color/white"
+        android:background="@color/card_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -39,7 +39,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@color/card_background"
             android:padding="18dp">
 
             <TextView
@@ -54,7 +54,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#DDD"
+                android:background="@color/card_background"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp" />
 
@@ -63,7 +63,7 @@
                 android:hint="Category name"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_hint_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -76,7 +76,7 @@
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="16dp"
                 android:layout_gravity="center_horizontal"
-                android:textColor="#777" />
+                android:textColor="@color/text_primary_color" />
 
             <GridLayout
                 android:id="@+id/iconGrid"
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

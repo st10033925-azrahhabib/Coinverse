@@ -36,7 +36,9 @@
                 android:layout_height="wrap_content"
                 android:text="Home"
                 android:fontFamily="@font/poppinsregular"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:textColor="@color/text_primary_color"/>
+
         </LinearLayout>
 
         <!-- insights -->
@@ -60,7 +62,7 @@
                 android:text="Insights"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="12sp"
-                android:textColor="#808080" />
+                android:textColor="@color/text_primary_color" />
         </LinearLayout>
 
         <!-- + button -->
@@ -105,7 +107,7 @@
                 android:text="Goals"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="12sp"
-                android:textColor="#808080"/>
+                android:textColor="@color/text_primary_color"/>
         </LinearLayout>
 
         <!-- profile -->
@@ -129,7 +131,7 @@
                 android:text="Profile"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="12sp"
-                android:textColor="#808080"/>
+                android:textColor="@color/text_primary_color"/>
         </LinearLayout>
     </LinearLayout>
 

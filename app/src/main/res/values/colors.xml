@@ -9,4 +9,6 @@
     <color name="dropdown_arrow_color">#FF6200EE</color> <!-- Use an accent color  -->
     <color name="coinverse_purple">#7A63AC</color>
     <color name="header_purple">#d3bcff</color>
+    <color name="card_background">#FFFFFF</color> <!-- Light mode background for boxes -->
+
 </resources>

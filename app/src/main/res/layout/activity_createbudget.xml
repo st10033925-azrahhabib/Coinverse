@@ -43,7 +43,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="#E0E0E0" />
+                android:background="@color/card_background" />
 
 
             <RelativeLayout
@@ -60,7 +60,7 @@
                     android:paddingEnd="30dp"
                     android:textSize="16sp"
                     android:fontFamily="@font/poppinsregular"
-                    android:textColor="#9A9A9A"
+                    android:textColor="@color/text_hint_color"
                     android:text="@string/hint_select_category"/>
 
                 <ImageView
@@ -103,7 +103,7 @@
                     android:text="@string/hint_budget_period"
                     android:textSize="16sp"
                     android:fontFamily="@font/poppinsregular"
-                    android:textColor="#9A9A9A" />
+                    android:textColor="@color/text_hint_color" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -140,7 +140,7 @@
                 android:textSize="16sp"
                 android:fontFamily="@font/poppinsregular"
                 android:textColorHint="#9A9A9A"
-                android:textColor="#333333" />
+                android:textColor="@color/text_hint_color" />
 
 
             <EditText
@@ -156,7 +156,7 @@
                 android:textSize="16sp"
                 android:fontFamily="@font/poppinsregular"
                 android:textColorHint="#9A9A9A"
-                android:textColor="#333333" />
+                android:textColor="@color/text_hint_color" />
 
 
             <LinearLayout
@@ -205,7 +205,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F5F5F5"
+        android:background="@color/card_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
