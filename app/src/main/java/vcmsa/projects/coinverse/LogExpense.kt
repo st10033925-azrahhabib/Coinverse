@@ -139,7 +139,6 @@ class LogExpense : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_log_expense)
 
         // Views By ID
@@ -170,20 +169,12 @@ class LogExpense : AppCompatActivity() {
         db = FirebaseFirestore.getInstance() // Get Firestore instance
         auth = FirebaseAuth.getInstance()
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, 0 , systemBars.right, 0) // bottom = 0
-            insets
-        }
-
         // Setup UI components
         setupCategorySpinner()
         loadCategoriesFromDb()
         setupDatePicker()
         setupButtonClickListeners()
         setupNavigationBar()
-
-
     }
 
     // Category Spinner Setup

@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
     tools:context=".CreateBudgetActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <!-- header -->
     <include layout="@layout/layout_header" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_create_budget"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="50dp"
         app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
-        app:cardElevation="6dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:cardElevation="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,14 +42,12 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/poppinsbold" />
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="#E0E0E0" />
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -62,7 +64,7 @@
                     android:textSize="16sp"
                     android:fontFamily="@font/poppinsregular"
                     android:textColor="#9A9A9A"
-                    android:text="@string/hint_select_category"/>
+                    android:text="@string/hint_select_category" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -70,13 +72,11 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:contentDescription="@string/cd_dropdown_arrow"
-                    android:src="@android:drawable/arrow_down_float"/>
-
+                    android:src="@android:drawable/arrow_down_float" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-
                     android:layout_alignParentBottom="true"
                     android:background="#D3C6EC" />
 
@@ -87,7 +87,6 @@
                     android:background="@android:color/transparent"
                     android:alpha="0" />
             </RelativeLayout>
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -112,8 +111,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:contentDescription="@string/cd_dropdown_arrow"
-                    android:src="@android:drawable/arrow_down_float"/>
-
+                    android:src="@android:drawable/arrow_down_float" />
 
                 <View
                     android:layout_width="match_parent"
@@ -129,7 +127,6 @@
                     android:alpha="0" />
             </RelativeLayout>
 
-
             <EditText
                 android:id="@+id/etAmountBudget"
                 android:layout_width="match_parent"
@@ -142,7 +139,6 @@
                 android:fontFamily="@font/poppinsregular"
                 android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
-
 
             <EditText
                 android:id="@+id/etNotesBudget"
@@ -158,7 +154,6 @@
                 android:fontFamily="@font/poppinsregular"
                 android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -195,22 +190,19 @@
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     app:cornerRadius="24dp" />
-
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:orientation="horizontal"
         android:padding="8dp"
         android:background="#F5F5F5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center">
 
         <ImageButton
@@ -263,5 +255,4 @@
             android:background="@android:color/transparent"
             android:padding="12dp" />
     </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

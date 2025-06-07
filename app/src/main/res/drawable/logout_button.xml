@@ -1,5 +1,17 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="#9A0F3F" />
-    <corners android:radius="24dp" />
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- pressed -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#5E4C9D" /> <!-- darker shade when pressed -->
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+
+    <!-- default -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/coinverse_purple" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+</selector>

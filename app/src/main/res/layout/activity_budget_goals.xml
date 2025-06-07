@@ -7,16 +7,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg">
 
-    <!-- Use vertical stacking for header and scrollable content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Fixed Header -->
+        <!-- header -->
         <include layout="@layout/layout_header" />
 
-        <!-- Scrollable Content -->
+        <!-- scrollable content -->
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
@@ -30,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Month Selector Fragment -->
+                <!-- month selector fragment -->
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/fragmentContainer"
                     android:name="vcmsa.projects.coinverse.MonthFragment"
@@ -38,7 +37,7 @@
                     android:layout_height="wrap_content"
                     tools:layout="@layout/fragment_month" />
 
-                <!-- Budget Goals Card -->
+                <!-- budget goals card -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardBudgetGoals"
                     android:layout_width="360dp"
@@ -137,7 +136,7 @@
         </ScrollView>
     </LinearLayout>
 
-    <!-- Fixed Bottom Nav Bar -->
+    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
