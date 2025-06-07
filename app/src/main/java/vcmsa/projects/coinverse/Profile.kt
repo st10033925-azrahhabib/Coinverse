@@ -17,6 +17,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import vcmsa.projects.coinverse.db.AppDatabase
+import vcmsa.projects.coinverse.firebase.CategoryFirestore
+import vcmsa.projects.coinverse.repository.CategoryRepository
 
 class Profile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +48,27 @@ class Profile : AppCompatActivity() {
         logout()
         updateBadges()
         setupChangePasswordButton()
+        syncCategoryData()
+    }
+
+    //sync category to firebase
+    private fun syncCategoryData() {
+        // Initialize all the necessary components for the repository
+        val categoryDao = AppDatabase.getDatabase(this).categoryDao()
+        val firestoreHelper = CategoryFirestore()
+        val repository = CategoryRepository(categoryDao, firestoreHelper)
+
+        lifecycleScope.launch {
+            try {
+                // Call the main repository function to sync the data.
+                repository.syncAllLocalCategoriesToFirestore()
+                println("Category data sync completed successfully.")
+            } catch (e: Exception) {
+                // Handle potential errors
+                println("Sync failed: ${e.message}")
+                Toast.makeText(this@Profile, "Data sync failed.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     //change password
