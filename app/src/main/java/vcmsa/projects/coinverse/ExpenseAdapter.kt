@@ -1,5 +1,6 @@
 package vcmsa.projects.coinverse
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 data class CategoryTotal(val category: String, val totalAmount: Double)
 
-class ExpenseAdapter(private val categoryTotals: List<CategoryTotal>) : RecyclerView.Adapter<ExpenseAdapter.ViewHolder>() {
+class ExpenseAdapter(private val categoryTotals: List<CategoryTotal>, private val currentMonth: Int) : RecyclerView.Adapter<ExpenseAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryTV: TextView = itemView.findViewById(R.id.tvCategory)
@@ -37,6 +38,14 @@ class ExpenseAdapter(private val categoryTotals: List<CategoryTotal>) : Recycler
         holder.categoryTV.text = currentItem.category
         holder.totalAmountTV.text = String.format("- R %.2f", currentItem.totalAmount)
         holder.setCategoryIcon(currentItem.category)
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, CategoryDetailsActivity::class.java)
+            intent.putExtra("category", currentItem.category)
+            intent.putExtra("month", currentMonth)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = categoryTotals.size
