@@ -113,7 +113,7 @@ class ExpensesActivity : AppCompatActivity() {
             CategoryTotal(category, total)
         }.toList()
 
-        expenseAdapter = ExpenseAdapter(categoryTotals)
+        expenseAdapter = ExpenseAdapter(categoryTotals, currentMonth)
         expensesRecyclerView.adapter = expenseAdapter
     }
 
