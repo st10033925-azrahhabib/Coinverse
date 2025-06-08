@@ -30,6 +30,12 @@ class CategoryDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category_details)
 
+        // back button
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
+
         //Gets necessary details attached to the Intent
         categoryName = intent.getStringExtra("category")
         val categoryId = intent.getStringExtra("CATEGORY_ID")

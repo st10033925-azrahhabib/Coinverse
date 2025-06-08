@@ -3,10 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rounded_card_bg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:layout_marginBottom="12dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <!-- Background circle with icon -->
     <ImageView
@@ -16,6 +18,7 @@
         android:padding="8dp"
         android:background="@drawable/circle_background_light_grey"
         app:tint="#7A63AC"
+        android:layout_marginStart="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +43,7 @@
         android:id="@+id/tvCategoryMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="16dp"
         android:textColor="#7A63AC"
         android:textSize="16sp"
         android:fontFamily="@font/poppinssemibold"

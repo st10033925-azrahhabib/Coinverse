@@ -15,6 +15,8 @@
         android:layout_weight="1"
         android:layout_marginStart="15dp"
         android:text="Fuel"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textSize="18sp"
         android:textColor="@color/coinverse_purple"
         android:fontFamily="@font/poppinssemibold" />

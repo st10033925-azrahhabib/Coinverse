@@ -7,6 +7,17 @@
     android:background="@drawable/gradient_bg">
 
     <!-- Header -->
+    <ImageButton
+        android:id="@+id/btnBack2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Back"
+        app:layout_constraintBottom_toBottomOf="@id/textCategoryName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
     <include
         android:id="@+id/layout_header"
         layout="@layout/layout_header" />
@@ -16,7 +27,7 @@
         android:id="@+id/cardBudgetGoals"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="80dp"
@@ -27,42 +38,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:background="@color/card_background"
             android:padding="20dp">
 
+            <!-- back button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/back_button"
+                android:contentDescription="Back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/textCategoryName" />
+
+            <!-- title -->
             <TextView
                 android:id="@+id/textCategoryName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
                 android:text="Category Name"
                 android:textColor="@color/coinverse_purple"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnBack"
+                app:layout_constraintBottom_toBottomOf="@id/btnBack"
+                app:layout_constraintHorizontal_bias="0.5" />
 
+            <!-- divider -->
             <View
-                android:layout_width="match_parent"
+                android:id="@+id/divider"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/card_background" />
+                android:background="@color/card_background"
+                app:layout_constraintTop_toBottomOf="@id/textCategoryName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp" />
 
+            <!-- RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/category_rv"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingTop="8dp"
+                android:paddingTop="10dp"
                 android:paddingBottom="8dp"
                 android:overScrollMode="never"
-                tools:listitem="@layout/category_rv" />
+                tools:listitem="@layout/category_rv"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Bottom Navigation Bar -->
+    <!-- nav bar -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"

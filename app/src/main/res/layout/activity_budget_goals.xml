@@ -127,7 +127,6 @@
                             android:layout_height="wrap_content"
                             android:clipToPadding="false"
                             android:paddingTop="8dp"
-                            android:paddingBottom="8dp"
                             android:overScrollMode="never"
                             tools:listitem="@layout/budget_category_item" />
                     </LinearLayout>
