@@ -23,7 +23,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/card_background"
+        app:cardBackgroundColor="#F9F6FC"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp">
 
@@ -78,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/card_background" />
+                    android:background="#D3C6EC" />
 
                 <Spinner
                     android:id="@+id/spinnerCategoryBudget"
@@ -139,6 +139,11 @@
                 android:fontFamily="@font/poppinsregular"
                 android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
+
+            <EditText
+                android:id="@+id/etNotesBudget"
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
