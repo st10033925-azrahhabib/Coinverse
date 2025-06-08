@@ -13,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.text.HtmlCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -58,7 +59,10 @@ class Profile : AppCompatActivity() {
 
         currentUser?.let { user ->
             val username = user.displayName ?: user.email?.substringBefore("@") ?: "User"
-            welcomeText.text = "Welcome back, $username!"
+            welcomeText.text = HtmlCompat.fromHtml(
+                "Welcome back, <b>$username</b>! \uD83D\uDC4B",
+                HtmlCompat.FROM_HTML_MODE_LEGACY
+            )
         }
 
         navigationBar()
