@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
+import java.util.Calendar
 
 class BudgetGoals : AppCompatActivity() {
 
@@ -26,9 +27,25 @@ class BudgetGoals : AppCompatActivity() {
     private lateinit var budgetRecyclerView: RecyclerView
     private lateinit var budgetAdapter: BudgetAdapter
 
+    private var currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_budget_goals)
+
+        //updates the budgets based on the fragment
+        val monthFragment = MonthFragment().apply {
+            onMonthSelected = {monthIndex ->
+                currentMonth = monthIndex
+                fetchBudgets()
+                Log.d("MonthFragment", "Month selected: $monthIndex")
+            }
+        }
+
+        // adds the month fragment into the frame layout !
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, monthFragment)
+            .commit()
 
         auth = Firebase.auth
         firestore = Firebase.firestore
@@ -55,9 +72,34 @@ class BudgetGoals : AppCompatActivity() {
     private fun fetchBudgets() {
         val userID = auth.currentUser?.uid
 
+        val calendar = Calendar.getInstance()
+
+//            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR)) // optional
+        calendar.set(Calendar.MONTH, currentMonth)
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        val startDate = calendar.time
+
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
+        calendar.set(Calendar.HOUR_OF_DAY, 23)
+        calendar.set(Calendar.MINUTE, 59)
+        calendar.set(Calendar.SECOND, 59)
+        calendar.set(Calendar.MILLISECOND, 999)
+        val endDate = calendar.time
+
+        Log.d("BudgetDebug", "Fetching for month: $currentMonth")
+        Log.d("BudgetDebug", "Start date: $startDate")
+        Log.d("BudgetDebug", "End date: $endDate")
+
         if (userID != null) {
             firestore.collection("Budget")
                 .whereEqualTo("userId", userID)
+                .whereGreaterThanOrEqualTo("creationDate", startDate)
+                .whereLessThanOrEqualTo("creationDate", endDate)
+                .orderBy("creationDate")
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     val categoryTotals = mutableMapOf<String, Double>()

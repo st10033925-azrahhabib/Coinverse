@@ -23,22 +23,27 @@ class ExpensesActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var expensesRecyclerView: RecyclerView
-    private lateinit var weekTextView: TextView
-    private lateinit var arrowLeft: ImageView
-    private lateinit var arrowRight: ImageView
     private lateinit var expenseAdapter: ExpenseAdapter
 
     private var currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
-    private var currentWeek: Int = getCurrentWeek()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_expenses)
 
+        //updates the expenses based on the fragment
+        val monthFragment = MonthFragment().apply {
+            onMonthSelected = {monthIndex ->
+                currentMonth = monthIndex
+                fetchExpenses()
+                Log.d("MonthFragment", "Month selected: $monthIndex")
+            }
+        }
+
         // adds the month fragment into the frame layout !
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.fragmentContainer, MonthFragment())
-//            .commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, monthFragment)
+            .commit()
 
         auth = Firebase.auth
         firestore = Firebase.firestore
@@ -47,42 +52,42 @@ class ExpensesActivity : AppCompatActivity() {
         expensesRecyclerView = findViewById(R.id.rvExpenses)
         expensesRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        //updateWeekDisplay()
-        fetchExpenses()
+//        fetchExpenses()
         navigationBar()
-    }
-
-    //Get current week
-    private fun getCurrentWeek(): Int {
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.MONTH, currentMonth)
-        return calendar.get(Calendar.WEEK_OF_MONTH)
-    }
-
-    //Updates week selector
-    private fun updateWeekDisplay() {
-        weekTextView.text = String.format("Week %d", currentWeek)
     }
 
     //Gets and displays list of expenses per category
     private fun fetchExpenses() {
         val userID = auth.currentUser?.uid
 
-        if (userID != null) {
-//            val calendar = Calendar.getInstance()
-//
-//            calendar.set(Calendar.MONTH, currentMonth)
-//            calendar.set(Calendar.WEEK_OF_MONTH, currentWeek)
-//            calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY)
-//            val startDate = calendar.time
-//
-//            calendar.add(Calendar.DAY_OF_WEEK, 6)
-//            val endDate = calendar.time
+        val calendar = Calendar.getInstance()
 
+//            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR)) // optional
+        calendar.set(Calendar.MONTH, currentMonth)
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        val startDate = calendar.time
+
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
+        calendar.set(Calendar.HOUR_OF_DAY, 23)
+        calendar.set(Calendar.MINUTE, 59)
+        calendar.set(Calendar.SECOND, 59)
+        calendar.set(Calendar.MILLISECOND, 999)
+        val endDate = calendar.time
+
+        Log.d("ExpensesDebug", "Fetching for month: $currentMonth")
+        Log.d("ExpensesDebug", "Start date: $startDate")
+        Log.d("ExpensesDebug", "End date: $endDate")
+
+        if (userID != null) {
             firestore.collection("Expenses")
                 .whereEqualTo("userId", userID)
-//                .whereGreaterThanOrEqualTo("date", startDate)
-//                .whereLessThanOrEqualTo("date", endDate)
+                .whereGreaterThanOrEqualTo("date", startDate)
+                .whereLessThanOrEqualTo("date", endDate)
+                .orderBy("date")
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     val expenses = querySnapshot.toObjects(Expense::class.java)
