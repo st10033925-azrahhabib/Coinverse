@@ -140,21 +140,6 @@
                 android:textColorHint="#9A9A9A"
                 android:textColor="#333333" />
 
-            <EditText
-                android:id="@+id/etNotesBudget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:minLines="3"
-                android:gravity="top|start"
-                android:hint="@string/hint_additional_notes"
-                android:inputType="textMultiLine|textCapSentences"
-                android:backgroundTint="#D3C6EC"
-                android:textSize="16sp"
-                android:fontFamily="@font/poppinsregular"
-                android:textColorHint="#9A9A9A"
-                android:textColor="#333333" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -201,7 +186,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="horizontal"
-        android:padding="8dp"
         android:background="@color/card_background"
         android:gravity="center">
 

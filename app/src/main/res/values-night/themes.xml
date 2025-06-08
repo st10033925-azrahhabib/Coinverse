@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.Coinverse" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme -->
-        <item name="colorPrimary">#BB86FC</item>
-        <item name="colorPrimaryVariant">#3700B3</item>
+        <item name="colorPrimary">#d3bcff</item>
+        <item name="colorPrimaryVariant">#7A63AC</item>
         <item name="colorOnPrimary">#000000</item>
         <!-- ... -->
     </style>

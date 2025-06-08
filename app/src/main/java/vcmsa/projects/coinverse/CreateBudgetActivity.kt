@@ -82,7 +82,6 @@ class CreateBudgetActivity : AppCompatActivity() {
         spinnerPeriodBudget = findViewById(R.id.spinnerPeriodBudget)
         tvPeriodLabelBudget = findViewById(R.id.tvPeriodLabelBudget)
         etAmountBudget = findViewById(R.id.etAmountBudget)
-        etNotesBudget = findViewById(R.id.etNotesBudget)
         btnCancelBudget = findViewById(R.id.btnCancelBudget)
         btnConfirmBudget = findViewById(R.id.btnConfirmBudget)
         ivHome = findViewById(R.id.ivHome)

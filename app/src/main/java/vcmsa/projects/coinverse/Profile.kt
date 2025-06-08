@@ -35,7 +35,6 @@ class Profile : AppCompatActivity() {
         }
 
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_profile)
         val darkModeSwitch = findViewById<SwitchCompat>(R.id.switchDarkMode)
         darkModeSwitch.isChecked = darkModePref.isDarkModeEnabled()
@@ -60,12 +59,6 @@ class Profile : AppCompatActivity() {
         currentUser?.let { user ->
             val username = user.displayName ?: user.email?.substringBefore("@") ?: "User"
             welcomeText.text = "Welcome back, $username!"
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left,0, systemBars.right, 0)
-            insets
         }
 
         navigationBar()

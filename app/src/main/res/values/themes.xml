@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Coinverse" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">#6200EE</item>
-        <item name="colorPrimaryVariant">#3700B3</item>
+        <item name="colorPrimary">#d3bcff</item>
+        <item name="colorPrimaryVariant">#7A63AC</item>
         <item name="colorOnPrimary">#FFFFFF</item>
     </style>
 

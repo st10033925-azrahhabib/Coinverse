@@ -75,7 +75,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="horizontal"
-        android:padding="8dp"
         android:background="@color/card_background"
         android:gravity="center">
 
