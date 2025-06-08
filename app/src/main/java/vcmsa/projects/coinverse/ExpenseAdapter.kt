@@ -3,6 +3,7 @@ package vcmsa.projects.coinverse
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -11,8 +12,19 @@ data class CategoryTotal(val category: String, val totalAmount: Double)
 class ExpenseAdapter(private val categoryTotals: List<CategoryTotal>) : RecyclerView.Adapter<ExpenseAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val categoryTV = itemView.findViewById<TextView>(R.id.tvCategory)
-        val totalAmountTV = itemView.findViewById<TextView>(R.id.tvAmount)
+        val categoryTV: TextView = itemView.findViewById(R.id.tvCategory)
+        val totalAmountTV: TextView = itemView.findViewById(R.id.tvAmount)
+        private val categoryIcon: ImageView = itemView.findViewById(R.id.ivCategoryIcon)
+
+        fun setCategoryIcon(category: String) {
+            when (category.lowercase()) {
+                "shopping" -> categoryIcon.setImageResource(R.drawable.ic_shopping)
+                "transport" -> categoryIcon.setImageResource(R.drawable.ic_transport)
+                "entertainment" -> categoryIcon.setImageResource(R.drawable.ic_entertainment)
+                "sport" -> categoryIcon.setImageResource(R.drawable.ic_sports)
+                else -> categoryIcon.setImageResource(R.drawable.ic_savings)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,6 +36,7 @@ class ExpenseAdapter(private val categoryTotals: List<CategoryTotal>) : Recycler
         val currentItem = categoryTotals[position]
         holder.categoryTV.text = currentItem.category
         holder.totalAmountTV.text = String.format("- R %.2f", currentItem.totalAmount)
+        holder.setCategoryIcon(currentItem.category)
     }
 
     override fun getItemCount() = categoryTotals.size

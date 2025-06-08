@@ -58,6 +58,7 @@
                 android:paddingBottom="8dp"
                 android:overScrollMode="never"
                 tools:listitem="@layout/category_rv" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
