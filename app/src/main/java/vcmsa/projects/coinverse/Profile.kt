@@ -25,6 +25,9 @@ import kotlinx.coroutines.launch
 import vcmsa.projects.coinverse.db.AppDatabase
 import vcmsa.projects.coinverse.firebase.CategoryFirestore
 import vcmsa.projects.coinverse.repository.CategoryRepository
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class Profile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,8 +53,6 @@ class Profile : AppCompatActivity() {
             }
             recreate()
         }
-
-
 
         // gets and displays username + welcome back message
         val currentUser = Firebase.auth.currentUser
@@ -105,16 +106,24 @@ class Profile : AppCompatActivity() {
         val userId = Firebase.auth.currentUser?.uid ?: return
         val db = FirebaseFirestore.getInstance()
 
+        // get current month name
+        val currentMonthName = SimpleDateFormat("MMMM", Locale.getDefault()).format(Date())
+
+        // query budgets for this user and current month only
         db.collection("Budget")
             .whereEqualTo("userId", userId)
+            .whereEqualTo("period", currentMonthName)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 var totalBudgeted = 0.0
+
+                // accumulates the amounts
                 for (doc in querySnapshot) {
                     val amount = doc.getDouble("amount") ?: 0.0
                     totalBudgeted += amount
                 }
 
+                // calculates badges earned (max 4)
                 val badgesEarned = (totalBudgeted / 1000).toInt().coerceAtMost(4)
 
                 val badgeViews = listOf(
@@ -145,17 +154,16 @@ class Profile : AppCompatActivity() {
                     "Platinum Planner"
                 )
 
-                // iterates over badges and determines if earned or not
+                // Update UI for badges
                 for (i in badgeViews.indices) {
                     val badgeView = badgeViews[i]
                     val earned = i < badgesEarned
 
-                    // sets the grayscale for locked badges
                     val matrix = ColorMatrix()
                     if (earned) {
                         badgeView.colorFilter = null
                     } else {
-                        matrix.setSaturation(0f)
+                        matrix.setSaturation(0f)  // grayscale for locked badges
                         badgeView.colorFilter = ColorMatrixColorFilter(matrix)
                     }
 
@@ -165,7 +173,8 @@ class Profile : AppCompatActivity() {
                         showBadgeBottomSheet(
                             drawableRes = badgeDrawables[i],
                             badgeName = badgeNames[i],
-                            description = badgeDescriptions[i],
+                            // display a different message if the user hasnt unlocked the badge
+                            description = if (earned) badgeDescriptions[i] else "Keep saving to discover this badge!",
                             isEarned = earned
                         )
                     }
@@ -175,6 +184,7 @@ class Profile : AppCompatActivity() {
                 Toast.makeText(this, "Failed to load budgets for badges", Toast.LENGTH_SHORT).show()
             }
     }
+
 
     // helper method to display badge details in a BottomSheetDialog.
     private fun showBadgeBottomSheet(
