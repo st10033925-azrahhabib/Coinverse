@@ -75,7 +75,7 @@
                         android:text="-3600"
                         android:textColor="#888888"
                         android:textSize="22sp"
-                        android:paddingEnd="8dp"
+                        android:paddingEnd="10dp"
                         android:fontFamily="@font/poppinsregular"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

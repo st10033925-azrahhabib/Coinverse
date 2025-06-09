@@ -1,10 +1,14 @@
 package vcmsa.projects.coinverse
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +17,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
-import java.util.Calendar
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CategoryDetailsActivity : AppCompatActivity() {
 
@@ -30,27 +35,29 @@ class CategoryDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category_details)
 
-        // back button
+        // Back button
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
         btnBack.setOnClickListener {
             finish()
         }
 
-        //Gets necessary details attached to the Intent
+        // Get category and month from intent
         categoryName = intent.getStringExtra("category")
-        val categoryId = intent.getStringExtra("CATEGORY_ID")
         currentMonth = intent.getIntExtra("month", -1)
 
-        //Sets the View Title
+        // Set title
         val textView = findViewById<TextView>(R.id.textCategoryName)
         textView.text = "$categoryName"
 
         firestore = Firebase.firestore
         auth = Firebase.auth
 
+        // Setup RecyclerView
         recyclerView = findViewById(R.id.category_rv)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ListExpensesAdapter(expenseList)
+        adapter = ListExpensesAdapter(expenseList) { expense ->
+            showExpenseDialog(expense)
+        }
         recyclerView.adapter = adapter
 
         if (currentMonth >= 0 && categoryName != null) {
@@ -60,13 +67,10 @@ class CategoryDetailsActivity : AppCompatActivity() {
         navigationBar()
     }
 
-    //Gets and displays list of expenses within a category
     private fun fetchCategoryExpenses() {
         val userID = auth.currentUser?.uid
-
         val calendar = Calendar.getInstance()
 
-//            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR)) // optional
         calendar.set(Calendar.MONTH, currentMonth)
         calendar.set(Calendar.DAY_OF_MONTH, 1)
         calendar.set(Calendar.HOUR_OF_DAY, 0)
@@ -81,10 +85,6 @@ class CategoryDetailsActivity : AppCompatActivity() {
         calendar.set(Calendar.SECOND, 59)
         calendar.set(Calendar.MILLISECOND, 999)
         val endDate = calendar.time
-
-        Log.d("CategoryDetailsDebug", "Fetching for month: $currentMonth")
-        Log.d("CategoryDetailsDebug", "Start date: $startDate")
-        Log.d("CategoryDetailsDebug", "End date: $endDate")
 
         if (userID != null) {
             firestore.collection("Expenses")
@@ -101,12 +101,38 @@ class CategoryDetailsActivity : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                 }
                 .addOnFailureListener { e ->
-                    Log.e("CategoryDetailsDebug", "Error fetching category $categoryName's expenses")
+                    Log.e("CategoryDetailsDebug", "Error fetching expenses: ${e.message}")
                 }
         }
     }
 
-    //Nav Bar
+    private fun showExpenseDialog(expense: Expense) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_expense_details, null)
+
+        val amountText = dialogView.findViewById<TextView>(R.id.tvDialogAmount)
+        val dateText = dialogView.findViewById<TextView>(R.id.tvDialogDate)
+        val notesText = dialogView.findViewById<TextView>(R.id.tvDialogNotes)
+
+        amountText.text = String.format("R %.2f", expense.amount)
+        dateText.text = expense.date?.toString() ?: "N/A"
+        notesText.text = expense.notes ?: "None"
+
+        val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        // Make dialog background transparent to show rounded corners
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+
+        val btnOk = dialogView.findViewById<Button>(R.id.btnOk)
+        btnOk.setOnClickListener {
+            dialog.dismiss()
+        }
+
+    }
+
     private fun navigationBar() {
         val homeLink = findViewById<ImageButton>(R.id.ivHome)
         val insightsLink = findViewById<ImageButton>(R.id.ivInsights)
@@ -115,28 +141,23 @@ class CategoryDetailsActivity : AppCompatActivity() {
         val profileLink = findViewById<ImageButton>(R.id.ivProfile)
 
         homeLink.setOnClickListener {
-            val intent = Intent(this, ExpensesActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, ExpensesActivity::class.java))
         }
 
         insightsLink.setOnClickListener {
-            val intent = Intent(this, Insights::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Insights::class.java))
         }
 
         addLink.setOnClickListener {
-            val intent = Intent(this, LogExpense::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LogExpense::class.java))
         }
 
         goalsLink.setOnClickListener {
-            val intent = Intent(this, BudgetGoals::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, BudgetGoals::class.java))
         }
 
         profileLink.setOnClickListener {
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Profile::class.java))
         }
     }
 }

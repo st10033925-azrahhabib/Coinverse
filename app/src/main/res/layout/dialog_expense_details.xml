@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:text="Expense Details"
+        android:fontFamily="@font/poppinssemibold"
+        android:textColor="@color/coinverse_purple"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Grid for labels and values -->
+    <GridLayout
+        android:columnCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Label 1 -->
+        <TextView
+            android:text="Amount:"
+            android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/coinverse_purple"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Value 1 -->
+        <TextView
+            android:id="@+id/tvDialogAmount"
+            android:text="R 0.00"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@android:color/black"
+            android:layout_columnWeight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Label 2 -->
+        <TextView
+            android:text="Date:"
+            android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/coinverse_purple"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Value 2 -->
+        <TextView
+            android:id="@+id/tvDialogDate"
+            android:text="01/01/2025"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@android:color/black"
+            android:layout_columnWeight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Label 3 -->
+        <TextView
+            android:text="Notes:"
+            android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/coinverse_purple"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <!-- Value 3 -->
+        <TextView
+            android:id="@+id/tvDialogNotes"
+            android:text="Lunch with client"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@android:color/black"
+            android:layout_columnWeight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </GridLayout>
+
+    <!-- spacer to push button to bottom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <!-- OK button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/coinverse_purple"
+            android:text="OK" />
+
+    </LinearLayout>
+
+</LinearLayout>
