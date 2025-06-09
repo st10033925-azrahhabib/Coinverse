@@ -13,5 +13,6 @@
     <color name="header_purple">#d3bcff</color>
     <color name="card_background">#433E5A</color> <!-- Dark mode background for cards -->
     <color name="expense_card_background">#36324A</color>
+    <color name="form_text">#FFFFFF</color>
 
 </resources>

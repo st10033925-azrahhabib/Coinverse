@@ -11,4 +11,5 @@
     <color name="header_purple">#d3bcff</color>
     <color name="card_background">#FFFFFF</color> <!-- Light mode background for boxes -->
     <color name="expense_card_background">#F1F1F1</color>
+    <color name="form_text">#000000</color>
 </resources>

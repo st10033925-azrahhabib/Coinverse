@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/card_background"
             android:padding="20dp">
 
             <TextView
@@ -46,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="3dp"
                 android:background="@color/card_background" />
 
             <RelativeLayout
@@ -84,6 +85,7 @@
                     android:id="@+id/spinnerCategoryBudget"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="#000000"
                     android:background="@android:color/transparent"
                     android:alpha="0" />
             </RelativeLayout>
@@ -123,6 +125,7 @@
                     android:id="@+id/spinnerPeriodBudget"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="#000000"
                     android:background="@android:color/transparent"
                     android:alpha="0" />
             </RelativeLayout>
@@ -136,9 +139,9 @@
                 android:inputType="numberDecimal"
                 android:backgroundTint="#D3C6EC"
                 android:textSize="16sp"
+                android:textColor="@color/form_text"
                 android:fontFamily="@font/poppinsregular"
-                android:textColorHint="#9A9A9A"
-                android:textColor="#333333" />
+                android:textColorHint="#9A9A9A" />
 
             <EditText
                 android:id="@+id/etNotesBudget"

@@ -194,8 +194,7 @@ class LogExpense : AppCompatActivity() {
                     //tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_hint_color))
                 } else {
                     tvCategoryLabel.text = selectedCategory
-                    tvCategoryLabel.setTextColor(Color.BLACK)
-                    //tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_primary_color))
+                    tvCategoryLabel.setTextColor(ContextCompat.getColor(this@LogExpense, R.color.text_primary_color))
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
