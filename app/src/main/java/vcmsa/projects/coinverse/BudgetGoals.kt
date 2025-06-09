@@ -63,7 +63,7 @@ class BudgetGoals : AppCompatActivity() {
             startActivity(intent)
         }
 
-        fetchBudgets()
+//        fetchBudgets()
         navigationBar()
     }
 
