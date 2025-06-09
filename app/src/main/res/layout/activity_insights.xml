@@ -47,74 +47,84 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daily Spending"
+                    android:text="Monthly Spending"
                     android:textColor="#7A63AC"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/poppinsbold"
                     android:layout_gravity="center_horizontal" />
 
-                <TextView
-                    android:id="@+id/tvTotalExpensesValue"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="-3600"
-                    android:textColor="#888888"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/poppinsregular"
-                    android:layout_marginTop="8dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/tvTotalExpensesLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="total expenses"
-                    android:textColor="#AAAAAA"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="14sp"
-                    android:layout_gravity="center_horizontal" />
+                    <!-- col 1 -->
+                    <TextView
+                        android:id="@+id/tvTotalExpensesValue1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-3600"
+                        android:textColor="#888888"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppinsregular"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvTotalExpensesValue2" />
+
+                    <TextView
+                        android:id="@+id/tvTotalExpensesLabel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Spend"
+                        android:textColor="#AAAAAA"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppinsregular"
+                        app:layout_constraintTop_toBottomOf="@id/tvTotalExpensesValue1"
+                        app:layout_constraintStart_toStartOf="@id/tvTotalExpensesValue1"
+                        app:layout_constraintEnd_toEndOf="@id/tvTotalExpensesValue1" />
+
+                    <!-- col 2 -->
+                    <TextView
+                        android:id="@+id/tvTotalExpensesValue2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4600"
+                        android:textColor="#888888"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/poppinsregular"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvTotalExpensesValue1"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvTotalExpensesLabel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Budgeted"
+                        android:textColor="#AAAAAA"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppinsregular"
+                        app:layout_constraintTop_toBottomOf="@id/tvTotalExpensesValue2"
+                        app:layout_constraintStart_toStartOf="@id/tvTotalExpensesValue2"
+                        app:layout_constraintEnd_toEndOf="@id/tvTotalExpensesValue2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <FrameLayout
                     android:id="@+id/chartContainer"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:layout_marginTop="16dp"
-                    android:background="#EDEDED">
+                    android:background="@color/card_background">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chart Area"
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="214dp"
+                        android:layout_margin="14dp"
                         android:layout_gravity="center" />
                 </FrameLayout>
 
-                <LinearLayout
-                    android:id="@+id/layoutChartDots"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="12dp">
-
-                    <ImageView
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginEnd="4dp"
-                        android:src="@drawable/dotpurple" />
-
-                    <ImageView
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginHorizontal="4dp"
-                        android:src="@drawable/dotpurple" />
-
-                    <ImageView
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_marginStart="4dp"
-                        android:src="@drawable/dotpurple" />
-                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
