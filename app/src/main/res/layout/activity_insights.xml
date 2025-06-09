@@ -54,6 +54,14 @@
                     android:fontFamily="@font/poppinsbold"
                     android:layout_gravity="center_horizontal" />
 
+                <View
+                    android:layout_width="300dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="6dp"
+                    android:background="#DDD" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,6 +75,7 @@
                         android:text="-3600"
                         android:textColor="#888888"
                         android:textSize="22sp"
+                        android:paddingEnd="8dp"
                         android:fontFamily="@font/poppinsregular"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +118,14 @@
                         app:layout_constraintStart_toStartOf="@id/tvTotalExpensesValue2"
                         app:layout_constraintEnd_toEndOf="@id/tvTotalExpensesValue2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="300dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0dp"
+                    android:background="#DDD" />
 
                 <FrameLayout
                     android:id="@+id/chartContainer"
@@ -161,6 +178,7 @@
                     android:layout_height="wrap_content"
                     android:text="-670"
                     android:textColor="#888888"
+                    android:paddingEnd="8dp"
                     android:textSize="20sp"
                     android:fontFamily="@font/poppinsregular"
                     android:layout_marginTop="2dp"

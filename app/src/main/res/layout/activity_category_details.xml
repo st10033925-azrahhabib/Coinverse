@@ -7,17 +7,6 @@
     android:background="@drawable/gradient_bg">
 
     <!-- Header -->
-    <ImageButton
-        android:id="@+id/btnBack2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="Back"
-        app:layout_constraintBottom_toBottomOf="@id/textCategoryName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_left" />
-
     <include
         android:id="@+id/layout_header"
         layout="@layout/layout_header" />
