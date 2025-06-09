@@ -15,7 +15,6 @@
 
     <!-- header -->
     <include
-        android:id="@+id/topAppBar"
         layout="@layout/layout_header" />
 
     <!-- card content -->
