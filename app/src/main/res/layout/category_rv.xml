@@ -17,7 +17,7 @@
         android:text="Fuel"
         android:maxLines="1"
         android:ellipsize="end"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textColor="@color/coinverse_purple"
         android:fontFamily="@font/poppinssemibold" />
 

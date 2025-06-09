@@ -136,7 +136,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/changePassword"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="37dp"
                     android:background="@drawable/logout_button"
                     android:textSize="16sp"
                     android:fontFamily="@font/poppinsregular"
