@@ -11,7 +11,7 @@ import vcmsa.projects.coinverse.ExpenseAdapter.ViewHolder
 
 data class BudgetCategoryTotal(val category: String, val totalAmount: Double)
 
-class BudgetAdapter(private val categoryTotals: List<BudgetCategoryTotal>) : RecyclerView.Adapter<BudgetAdapter.ViewHolder>() {
+class BudgetAdapter(private val categoryTotals: List<BudgetCategoryTotal>, private val budgetTotal: Double) : RecyclerView.Adapter<BudgetAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val categoryIcon: ImageView = itemView.findViewById(R.id.ivCategoryIcon)
@@ -39,7 +39,7 @@ class BudgetAdapter(private val categoryTotals: List<BudgetCategoryTotal>) : Rec
         val currentItem = categoryTotals[position]
         holder.categoryName.text = currentItem.category
         holder.categoryValue.text = String.format("%.2f", currentItem.totalAmount)
-        holder.seekBar.max = currentItem.totalAmount.toInt()
+        holder.seekBar.max = budgetTotal.toInt()
         holder.seekBar.progress = currentItem.totalAmount.toInt()
         holder.setCategoryIcon(currentItem.category)
     }

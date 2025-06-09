@@ -79,7 +79,7 @@ class Insights : AppCompatActivity() {
         legend.isEnabled = true
         legend.form = Legend.LegendForm.CIRCLE
         legend.textSize = 14f
-        legend.textColor = Color.BLACK
+        legend.textColor = Color.parseColor("#888888")
         legend.formSize = 12f
         legend.xEntrySpace = 10f
         legend.yEntrySpace = 8f
@@ -199,6 +199,7 @@ class Insights : AppCompatActivity() {
                             pieChart.data = pieData
                             pieChart.setCenterText("Balance:\nR ${String.format("%.2f", balance)}")
                             pieChart.setCenterTextSize(16f)
+                            pieChart.setCenterTextColor(Color.parseColor("#888888"))
                             pieChart.invalidate()
 
                             //Update text fields

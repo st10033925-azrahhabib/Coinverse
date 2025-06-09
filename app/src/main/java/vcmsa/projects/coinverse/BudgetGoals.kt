@@ -1,9 +1,11 @@
 package vcmsa.projects.coinverse
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,10 +24,13 @@ class BudgetGoals : AppCompatActivity() {
 
     private lateinit var addBudget: ImageView
     private lateinit var totalTV: TextView
+    private lateinit var budgetTV: TextView
+    private lateinit var budgetSB: SeekBar
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var budgetRecyclerView: RecyclerView
     private lateinit var budgetAdapter: BudgetAdapter
+    private var availableBudget = 0
 
     private var currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
 
@@ -37,6 +42,7 @@ class BudgetGoals : AppCompatActivity() {
         val monthFragment = MonthFragment().apply {
             onMonthSelected = {monthIndex ->
                 currentMonth = monthIndex
+                calculateRemainingBudget()
                 fetchBudgets()
                 Log.d("MonthFragment", "Month selected: $monthIndex")
             }
@@ -50,6 +56,8 @@ class BudgetGoals : AppCompatActivity() {
         auth = Firebase.auth
         firestore = Firebase.firestore
         totalTV = findViewById(R.id.budgetTotal)
+        budgetTV = findViewById(R.id.tvAvailableBudgetValue)
+        budgetSB = findViewById(R.id.seekBarBudget)
 
         //configures rv
         budgetRecyclerView = findViewById(R.id.recyclerBudgetCategories)
@@ -66,7 +74,6 @@ class BudgetGoals : AppCompatActivity() {
 //        fetchBudgets()
         navigationBar()
     }
-
 
     //Gets and displays a list of budgets per category
     private fun fetchBudgets() {
@@ -114,6 +121,8 @@ class BudgetGoals : AppCompatActivity() {
                         }
                         totalBudget += amount
                     }
+
+                    //update text fields
                     totalTV.text = "R ${String.format("%.2f", totalBudget)}"
 
                     val categoryTotalList = categoryTotals.map { (category, total) ->
@@ -121,12 +130,81 @@ class BudgetGoals : AppCompatActivity() {
                     }.toList()
 
                     //update the recyclerView
-                    budgetAdapter = BudgetAdapter(categoryTotalList)
+                    budgetAdapter = BudgetAdapter(categoryTotalList, totalBudget)
                     budgetRecyclerView.adapter = budgetAdapter
                 }
                 .addOnFailureListener {e ->
                     Log.e("LogFailure","Error fetching budgets.")
                 }
+        }
+    }
+
+    private fun calculateRemainingBudget(){
+        val userID = auth.currentUser?.uid
+
+        val calendar = Calendar.getInstance()
+
+//            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR)) // optional
+        calendar.set(Calendar.MONTH, currentMonth)
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        val startDate = calendar.time
+
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
+        calendar.set(Calendar.HOUR_OF_DAY, 23)
+        calendar.set(Calendar.MINUTE, 59)
+        calendar.set(Calendar.SECOND, 59)
+        calendar.set(Calendar.MILLISECOND, 999)
+        val endDate = calendar.time
+
+        Log.d("AvailableBudget", "Fetching for month: $currentMonth")
+        Log.d("AvailableBudget", "Start date: $startDate")
+        Log.d("AvailableBudget", "End date: $endDate")
+
+        var totalBudget = 0.0
+        var totalExpenses = 0.0
+
+        if (userID != null) {
+            firestore.collection("Budget")
+                .whereEqualTo("userId", userID)
+                .whereGreaterThanOrEqualTo("creationDate", startDate)
+                .whereLessThanOrEqualTo("creationDate", endDate)
+                .orderBy("creationDate")
+                .get()
+                .addOnSuccessListener { budgetSnap ->
+                    for (doc in budgetSnap.documents) {
+                        val amount = doc.getDouble("amount") ?: 0.0
+                        totalBudget += amount
+                        Log.w("AvailableBudget", "Budget Success!")
+                    }
+
+                    firestore.collection("Expenses")
+                        .whereEqualTo("userId", userID)
+                        .whereGreaterThanOrEqualTo("date", startDate)
+                        .whereLessThanOrEqualTo("date", endDate)
+                        .orderBy("date")
+                        .get()
+                        .addOnSuccessListener { expenseSnap ->
+                            for (doc in expenseSnap.documents) {
+                                val amount = doc.getDouble("amount") ?: 0.0
+                                totalExpenses += amount
+
+                                Log.w("AvailableBudget", "Expense Success!")
+                            }
+                            var budgetValue = totalBudget - totalExpenses
+                            availableBudget = budgetValue.toInt()
+
+                            //update text fields and seek bar
+                            budgetTV.text = "R ${String.format("%.2f", budgetValue)}"
+                            budgetSB.max = totalBudget.toInt()
+                            budgetSB.progress = availableBudget
+                        }
+                        .addOnFailureListener { Log.e("AvailableBudget", "Failed to fetch expenses.") }
+                }
+                .addOnFailureListener { Log.e("AvailableBudget", "Failed to fetch budgets. ") }
         }
     }
 
